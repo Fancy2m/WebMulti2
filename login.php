@@ -24,7 +24,7 @@
 			{
 				if($row->rechte==1)
 				{
-					echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=home.php></body></html>";
+					echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
 				}
 				else
 				{
