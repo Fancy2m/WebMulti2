@@ -30,23 +30,25 @@ font-size: 20px}
   box-shadow: none !important;
   border:0;
   border-radius: 3px;
-  border-bottom: 4px solid ;
+  border-bottom: 4px solid #00585F;
   width: 250px;
   height: 20px;
   outline: none}
 
 button {
   border: 0 !important;
-  box-shadow: none !important;
+  box-shadow: none ;
   color: white;
   background-color: #009393;
   padding: 10px 15px ;
   margin: 10px 0;
-  border-radius: 3px;}
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 1px grey}
 
 button:hover {
   transition: ease-in-out, .1s ease-in-out;
-  background-color: #00585F
+
+  box-shadow: 0px 0px 10px 1px grey
 }
 table{
   margin:auto;

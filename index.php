@@ -1,4 +1,6 @@
 <html>
+<link rel="stylesheet" href="layout.css">
+<link rel="stylesheet" href="index.css">
 <head>
 
 </head>
