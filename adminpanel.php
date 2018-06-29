@@ -83,7 +83,7 @@
             echo "<td>" . $row['dvorname']; echo '&nbsp'; echo $row['dnachname'] . "</td>";
             echo "<td>" . $row['avgrating'] . "</td>" ;
             echo '<td> <img src="' . $row['bild'] . '" alt="error", width="240px"; height="160px"></td>';
-            echo '<td><form action="adminmenu.php" method="POST"> <button name="editfilm"  value="edit" type="submit">bearbeiten</button> </form> </td>';
+            echo '<td><form action="adminpanel.php" method="POST"> <button name="editfilm"  value="edit" type="submit">bearbeiten</button> </form> </td>';
             }
             echo "</tr>";
           }
@@ -117,7 +117,7 @@
               echo "<td>" . $row['director_id'] . "</td>";
               echo "<td>" . $row['dvorname'] . "</td>";
               echo "<td>" . $row['dnachname'] . "</td>";
-              echo '<td><form action="adminmenu.php" method="POST"> <button name="editdirector" value="edit" type="submit">bearbeiten</button> </form> </td>';
+              echo '<td><form action="adminpanel.php" method="POST"> <button name="editdirector" value="edit" type="submit">bearbeiten</button> </form> </td>';
               }
               echo "</tr>";
             }
@@ -160,7 +160,7 @@
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['wert'] . "</td>" ;
                 echo '<td>' . $row['commnt'] . '</td>';
-                echo '<td><form action="adminmenu.php" method="POST"> <button name="editrating"  value="edit" type="submit">bearbeiten</button> </form> </td>';
+                echo '<td><form action="adminpanel.php" method="POST"> <button name="editrating"  value="edit" type="submit">bearbeiten</button> </form> </td>';
 
                 }
                 echo "</tr>";
@@ -173,22 +173,22 @@
       else {
         echo "Bitte wählen Sie eine Option aus.";
       }
-if($_POST['edituser'] == "edit")
+if($_POST['edituser']=="edit")
 {
-  $_SESSION["edit"]=1;
+  $_SESSION["edittoken"]=1;
   echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=editdata.php></body></html>";
 }
 
-if (['editfilm']=="edit") {
-  $_SESSION["edit"]=2;
+if ($_POST['editfilm']=="edit") {
+  $_SESSION["edittoken"]=2;
 }
 
-if (['editdirector']=="edit") {
-  $_SESSION["edit"]=3;
+if ($_POST['editdirector']=="edit") {
+  $_SESSION["edittoken"]=3;
 }
 
-if ({'editrating'}=="edit") {
-  $_SESSION["edit"]=4;
+if ($_POST['editrating']=="edit") {
+  $_SESSION["edittoken"]=4;
 }
 
     ?>
