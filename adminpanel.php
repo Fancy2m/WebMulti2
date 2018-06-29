@@ -44,7 +44,7 @@
             else {
                 echo "<td>Ja!</td>";
               }
-           echo '<td> <button name="edit"  value="edit" type="submit">bearbeiten</button> </td>';
+           echo '<td><form action="adminpanel.php" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
           }
           echo "</table>";
@@ -83,8 +83,7 @@
             echo "<td>" . $row['dvorname']; echo '&nbsp'; echo $row['dnachname'] . "</td>";
             echo "<td>" . $row['avgrating'] . "</td>" ;
             echo '<td> <img src="' . $row['bild'] . '" alt="error", width="240px"; height="160px"></td>';
-            echo '<td> <button name="edit"  value="edit" type="submit">bearbeiten</button> </td>';
-
+            echo '<td><form action="adminmenu.php" method="POST"> <button name="editfilm"  value="edit" type="submit">bearbeiten</button> </form> </td>';
             }
             echo "</tr>";
           }
@@ -118,8 +117,7 @@
               echo "<td>" . $row['director_id'] . "</td>";
               echo "<td>" . $row['dvorname'] . "</td>";
               echo "<td>" . $row['dnachname'] . "</td>";
-              echo '<td> <button name="edit"  value="edit" type="submit">bearbeiten</button> </td>';
-
+              echo '<td><form action="adminmenu.php" method="POST"> <button name="editdirector" value="edit" type="submit">bearbeiten</button> </form> </td>';
               }
               echo "</tr>";
             }
@@ -162,7 +160,7 @@
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['wert'] . "</td>" ;
                 echo '<td>' . $row['commnt'] . '</td>';
-                echo '<td> <button name="edit"  value="edit" type="submit">bearbeiten</button> </td>';
+                echo '<td><form action="adminmenu.php" method="POST"> <button name="editrating"  value="edit" type="submit">bearbeiten</button> </form> </td>';
 
                 }
                 echo "</tr>";

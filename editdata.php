@@ -1,22 +1,6 @@
-<!--<?php
-
-if (isset($_POST['submit']))
-{
-$result=$_POST['num1']*$_POST['num2'];
-}
-?>
-<html><body>
-<form action="#" method="post">
-Num1:<input name="num1"><br>
-Num2:<input name="num2">
-Answer: <input value="<?php if (isset($result)) echo $result ?>"> <input type="submit" name="submit">
-</form>
-</body></html> -->
-
 <?php
 include "adminmenu.php";
 $wert = $_GET['var'];
-$con = 0;
 
 if($wert==1)
 {
