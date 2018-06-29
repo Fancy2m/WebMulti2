@@ -176,6 +176,7 @@
 if($_POST['edituser'] == "edit")
 {
   $_SESSION["edit"]=1;
+  echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=editdata.php></body></html>";
 }
 
 if (['editfilm']=="edit") {
