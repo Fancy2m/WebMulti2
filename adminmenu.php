@@ -1,30 +1,10 @@
 <?php
-/*  $var=0;
-  if($_GET['userverwaltung']=="Nutzerverwaltung")
-  {
-    if(!$link=mysqli_connect("127.0.0.1","root",""))
-  	{
-  		echo "Verbindungsaufbau gescheitert.";
-  	}
-  	else
-  	{
-      $var=1;
-    }
-  }
-
-  if($_GET['filmeverwaltung']=="Filmeverwaltung")
-  {
-    if(!$link=mysqli_connect("127.0.0.1","root",""))
-  	{
-  		echo "Verbindungsaufbau gescheitert.";
-  	}
-  	else
-  	{
-      $var=2;
-    }
-  }
-
- */ ?>
+session_start();
+if($_POST['logout']=="logout")
+{
+  session_destroy();
+  echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=login.php></body></html>";
+}?>
 
 <html>
   <head>
@@ -39,7 +19,7 @@
       <!-- </form> -->
         <button onClick="window.location.href='adminpanel.php?var=3'">Director-Verwaltung</button>
         <button onClick="window.location.href='adminpanel.php?var=4'">Rating-Verwaltung</button>
-        <form action="">
+        <form action="adminmenu.php" method="POST">
           <button type="submit" name="logout" value="logout">Ausloggen</button>
         </form>
     </div>

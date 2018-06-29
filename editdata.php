@@ -19,6 +19,10 @@ if($_SESSION["edittoken"]==1)
     <th>Nutzer-ID</th>
     <th>Benutzername</th>
     <th>E-Mail Adresse</th>
+    <th>Vorname</th>
+    <th>Nachname</th>
+    <th>Geburtsdatum</th>
+    <th>Geschlecht</th>
     <th>Rechte</th>
     <th>Aktivierung</th>
     <th>Speichern</th>

@@ -27,7 +27,7 @@ if($_POST['create']=="Erstellen")
 		}
 		else
 		{
-			$input="insert into benutzer values(null,'".$_POST['username']."','".$_POST['passwort']."','".$_POST['vorname']."','".$_POST['nachname']."','".$_POST['geburtstag']."','".$_POST['anrede']."','".$_POST['email']."',0)";
+			$input="insert into benutzer values(null,'".$_POST['username']."','".$_POST['passwort']."','".$_POST['vorname']."','".$_POST['nachname']."','".$_POST['geburtstag']."','".$_POST['gender']."','".$_POST['email']."',0)";
 			if(!mysqli_query($link,$input))
 			{
 				echo "Fehler, Person konnte nicht hinzugefügt werden!";
@@ -65,7 +65,11 @@ else
     <input type="text" placeholder="Vorname" name="vorname" class="inputfield"></input><br>
     <input type="text" placeholder="Nachname" name="nachname" class="inputfield"></input><br>
     <input type="text" placeholder="JJJJ-MM-TT" name="geburtstag" class="inputfield"></input><br>
-		<input type="text" placeholder="Anrede" name="anrede" class="inputfield"></input><br>
+		<select name="gender" class="dropdown">
+			<option value="">Auswählen...</option>
+			<option value="1">Männlich</option>
+			<option value="2">Weiblich</option>
+		</select>
     <input type="Email" placeholder="Email-Adresse" name="email" class="inputfield"></input><br>
     <button type="submit" name="create" value="Erstellen">Erstellen</button>
 	</div>
