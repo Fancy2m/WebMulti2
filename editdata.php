@@ -1,6 +1,6 @@
 <?php
 include "adminmenu.php";
-$wert = $_GET['var'];
+$wert = $_SESSION["edit"];
 
 if($wert==1)
 {
