@@ -34,7 +34,13 @@ if($_SESSION["edittoken"]==1)
       echo "<td><input value=" .$row['user_ID']. "></input></td>";
       echo "<td><input value=" . $row['username'] . "></input></td>";
       echo "<td><input value=" . $row['email'] . "></input></td>";
-      echo "<td><input value=" . $row['rechte'] . "></input></td>";
+      echo "<td><input value=" . $row['vorname'] . "></input></td>";
+      echo "<td><input value=" . $row['nachname'] . "></input></td>";
+      echo "<td><input value=" . $row['geburtstag'] . "></input></td>";
+      if ($row['gender']==1)
+          {
+                echo "<td><input value="1"></input></td>";
+          }
       if ($row['rechte']==0)
         {
           echo '<td><button value="activate" name="activate">Aktivieren!</button></td>';
