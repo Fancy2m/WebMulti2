@@ -196,7 +196,7 @@ if(['activate']="activate")
   {
 
   }
-if(["deactivate"]="deactivate"!)
+if(["deactivate"]="deactivate")
 {
 
 }
