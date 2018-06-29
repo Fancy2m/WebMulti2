@@ -38,11 +38,11 @@
             echo "<td>" . $row['rechte'] . "</td>";
             if ($row['rechte']==0)
               {
-                echo "<td>Nein!</td>";
+                echo "<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate" label="Aktivieren">Aktivieren!</td>";
               }
 
             else {
-                echo "<td>Ja!</td>";
+              echo "<td><form action="adminpanel.php" method="POST"><button type="submit" name="deactivate" value="deactivate" label="Dektivieren">Aktivieren!</td>";
               }
            echo '<td><form action="adminpanel.php" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
@@ -189,6 +189,15 @@ if ($_POST['editdirector']=="edit") {
 
 if ($_POST['editrating']=="edit") {
   $_SESSION["edittoken"]=4;
+}
+
+if(['activate']="activate")
+  {
+    
+  }
+if{["deactivate"]="deactivate"!}
+{
+
 }
 
     ?>
