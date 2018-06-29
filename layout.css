@@ -1,5 +1,9 @@
 body {
+<<<<<<< HEAD
   background-color: white;
+=======
+  background-color: red;
+>>>>>>> f5b7613ca508a9fb2697eedaf4a5e7c98cb9ada6
 
   }
 
@@ -49,6 +53,7 @@ button:hover {
   transition: ease-in-out, .1s ease-in-out;
   background-color: #00585F
 }
+<<<<<<< HEAD
 table{
   margin:auto;
   border-radius: 2px;border-style: solid;
@@ -63,4 +68,9 @@ th{
   border-right: 1px solid #009393;
   padding: 5px
 
+=======
+table
+{
+  background-color: red
+>>>>>>> f5b7613ca508a9fb2697eedaf4a5e7c98cb9ada6
 }
