@@ -4,5 +4,5 @@
 </head>
 <body>
   <h1>Film DB</h1>
-  <a href="login.php">Login</a>  
+  <a href="http://localhost/WebMulti2/login.php">Login</a>
 </body>

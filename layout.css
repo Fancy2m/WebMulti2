@@ -1,10 +1,5 @@
 body {
-<<<<<<< HEAD
-  background-color: white;
-=======
-  background-color: red;
->>>>>>> f5b7613ca508a9fb2697eedaf4a5e7c98cb9ada6
-
+background-color: white
   }
 
 .center{
@@ -57,7 +52,7 @@ table{
   margin:auto;
   border-radius: 2px;border-style: solid;
   border-color:#009393;
-  border-right: none
+
 }
 tr{
   border: none
