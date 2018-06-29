@@ -18,6 +18,7 @@
 			$row=mysqli_fetch_object($ergebnis);
 			$_SESSION["accname"]=$row->username;
 			$_SESSION["gruppe"]=$row->rechte;
+			$_SESSION["login"]="1";
 
 			if($row->passwort==$passwort)
 			{
@@ -44,11 +45,11 @@
 			mysqli_close($link);
 		}
 	}
-	#if($_POST['lgbutton']=="Logout")
-	#{
-	#	session_destroy();
-	#	echo"<html><body><meta http-equiv=REFRESH CONTENT=1;url=login.php></body></html>";
-	#}
+	if($_POST['lgbutton']=="Logout")
+	{
+		session_destroy();
+		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=login.php></body></html>";
+	}
 ?>
 
 <html>
@@ -57,14 +58,24 @@
 		<link rel="stylesheet" href="layout.css">
 	</head>
 	<body>
-		<form action="login.php" method="POST">
-			<div class="center" >
-				<input type="text" placeholder="Benutzername" name="lname"><br>
-				<input type="password" placeholder="Passwort" name="lpass"><br>
-				<button type="submit" value="Login" name="lbutton">Login</button>
-			</div>
-			<!--<input type="submit" value="Logout" name="lgbutton" id="logout">-->
-		</form>
+		<?php
+			if ($_SESSION["login"]==0) {
+				echo '<form action="login.php" method="POST">
+								<div class="center" >
+									<input type="text" placeholder="Benutzername" name="lname"><br>
+									<input type="password" placeholder="Passwort" name="lpass"><br>
+									<button type="submit" value="Login" name="lbutton">Login</button>
+								</div>
+							</form>';
+			}
 
+			else {
+				include "adminmenu.php";
+				echo "Sie sind bereits eingeloggt.";
+				echo '<form action="login.php" method="POST">
+							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
+							</form>';
+			}
+		?>
 	</body>
 </html>

@@ -1,10 +1,9 @@
 <?php
 include "adminmenu.php";
-$wert = $_SESSION["edit"];
-
-if($wert==1)
+session_start();
+if($_SESSION["edittoken"]==1)
 {
-  echo "Hier stehen Userdaten $wert";
+  echo "Hier stehen Userdaten" . $_SESSION["edittoken"];
   if(!$link=mysqli_connect("127.0.0.1","root",""))
   {
     echo "Verbindungsaufbau gescheitert.";
@@ -20,6 +19,10 @@ if($wert==1)
     <th>Nutzer-ID</th>
     <th>Benutzername</th>
     <th>E-Mail Adresse</th>
+    <th>Vorname</th>
+    <th>Nachname</th>
+    <th>Geburtsdatum</th>
+    <th>Geschlecht</th>
     <th>Rechte</th>
     <th>Aktivierung</th>
     <th>Speichern</th>
@@ -27,21 +30,28 @@ if($wert==1)
 
     while($row = mysqli_fetch_array($result))
     {
+      $i=1;
       echo "<tr>";
       echo "<td><input value=" .$row['user_ID']. "></input></td>";
       echo "<td><input value=" . $row['username'] . "></input></td>";
       echo "<td><input value=" . $row['email'] . "></input></td>";
+      echo "<td><input value=" . $row['vorname'] . "></input></td>";
+      echo "<td><input value=" . $row['nachname'] . "></input></td>";
+      echo "<td><input value=" . $row['geburtstag'] . "></input></td>";
+      echo "<td><input value=" . $row['gender'] . "></input></td>";
       echo "<td><input value=" . $row['rechte'] . "></input></td>";
       if ($row['rechte']==0)
         {
-          echo '<td><button value="activate" name="activate">Aktivieren!</button></td>';
+          echo '<td><button value="activate" value="'.$i.'" name="activate">Aktivieren!</button></td>';
         }
 
-      else {
-          echo '<td><button value="deactivate" name="deactivate" type="submit">Deaktivieren!</button></td>';
+      else
+        {
+          echo '<td><button value="deactivate" name="deactivate" value="' . $i . '" type="submit">Deaktivieren!</button></td>';
         }
      echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
      echo "</tr>";
+     $i++;
     }
     echo "</table>";
 

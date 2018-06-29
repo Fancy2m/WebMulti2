@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="layout.css">
   <body>
     <?php
+    session_start();
       include "adminmenu.php";
       $wert = $_GET['var'];
       $con = 0;
@@ -38,12 +39,12 @@
             echo "<td>" . $row['rechte'] . "</td>";
             if ($row['rechte']==0)
               {
-                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate">Aktivieren!</button></form></td>';
+                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate">Aktivieren</button></form></td>';
               }
 
             else
               {
-                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="deactivate" value="deactivate" label="Dektivieren"></button></form></td>';
+                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="deactivate" value="deactivate">Deaktivieren</button></form></td>';
               }
            echo '<td><form action="adminpanel.php" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
@@ -176,20 +177,20 @@
       }
 if($_POST['edituser']=="edit")
 {
-  $_SESSION["edittoken"]=1;
+  $_SESSION["edittoken"]="1";
   echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=editdata.php></body></html>";
 }
 
 if ($_POST['editfilm']=="edit") {
-  $_SESSION["edittoken"]=2;
+  $_SESSION["edittoken"]="2";
 }
 
 if ($_POST['editdirector']=="edit") {
-  $_SESSION["edittoken"]=3;
+  $_SESSION["edittoken"]="3";
 }
 
 if ($_POST['editrating']=="edit") {
-  $_SESSION["edittoken"]=4;
+  $_SESSION["edittoken"]="4";
 }
 
 if($_POST['activate']="activate")
@@ -197,9 +198,9 @@ if($_POST['activate']="activate")
 
   }
 if($_POST["deactivate"]="deactivate")
-{
+  {
 
-}
+  }
 
     ?>
 
