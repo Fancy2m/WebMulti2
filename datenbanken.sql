@@ -96,3 +96,8 @@ create table rating (
 	foreign key (film_rid) references
 	film(film_ID) on delete restrict on update cascade
 	);
+
+  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('1', '2', '1', 'kjdlfkHDSLAKHFLKASHDLKFJ', '7', '2018-06-28');
+  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('2', '3', '5', 'adjlakshdflkjahsldkjf', '2', '2018-06-28');
+  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('3', '1', '3', 'LEEEEEEEL', '5', '2018-06-28');
+  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('4', '4', '4', 'XDDDDDD WAR GOIIIIIL SHEEEESH', '10', '2018-06-28');
