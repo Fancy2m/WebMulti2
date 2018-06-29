@@ -1,9 +1,9 @@
 <?php
 include "adminmenu.php";
 session_start();
-if($_SESSION["edit"]==1)
+if($_SESSION["edittoken"]==1)
 {
-  echo "Hier stehen Userdaten" . $_SESSION["edit"];
+  echo "Hier stehen Userdaten" . $_SESSION["edittoken"];
   if(!$link=mysqli_connect("127.0.0.1","root",""))
   {
     echo "Verbindungsaufbau gescheitert.";
