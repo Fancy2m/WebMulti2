@@ -5,7 +5,7 @@
     session_start();
       include "adminmenu.php";
       $wert = $_GET['var'];
-      $con = 0;
+      $i = 1;
 
       if($wert==1)
       {
@@ -44,10 +44,11 @@
 
             else
               {
-                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="deactivate" value="deactivate">Deaktivieren</button></form></td>';
+                echo '<td><form action="editdata.php" method="POST"><button type="submit" name="deactivate" value="deactivate">Deaktivieren</button></form></td>';
               }
-           echo '<td><form action="adminpanel.php" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
+           echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
+           $i++;
           }
           echo "</table>";
 
@@ -119,7 +120,7 @@
               echo "<td>" . $row['director_id'] . "</td>";
               echo "<td>" . $row['dvorname'] . "</td>";
               echo "<td>" . $row['dnachname'] . "</td>";
-              echo '<td><form action="adminpanel.php" method="POST"> <button name="editdirector" value="edit" type="submit">bearbeiten</button> </form> </td>';
+              echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="editdirector" value="edit" type="submit" onclick="window.location.href="/editdata.php?var='.$i.'">bearbeiten</button> </form> </td>';
               }
               echo "</tr>";
             }
@@ -175,33 +176,6 @@
       else {
         echo "Bitte wählen Sie eine Option aus.";
       }
-if($_POST['edituser']=="edit")
-{
-  $_SESSION["edittoken"]="1";
-  echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=editdata.php></body></html>";
-}
-
-if ($_POST['editfilm']=="edit") {
-  $_SESSION["edittoken"]="2";
-}
-
-if ($_POST['editdirector']=="edit") {
-  $_SESSION["edittoken"]="3";
-}
-
-if ($_POST['editrating']=="edit") {
-  $_SESSION["edittoken"]="4";
-}
-
-if($_POST['activate']="activate")
-  {
-
-  }
-if($_POST["deactivate"]="deactivate")
-  {
-
-  }
-
     ?>
 
   </body>
