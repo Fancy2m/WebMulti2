@@ -59,7 +59,7 @@ else
   </nav>
     <form action="register.php" method="POST">
     <h1>Registrierung</h1>
-		<div class="center">
+		<div class="center" >
     <input type="text" placeholder="Benutzername" name="username"class="inputfield" ></input><br>
     <input type="password" placeholder="Passwort" name="passwort" class="inputfield"></input><br>
     <input type="text" placeholder="Vorname" name="vorname" class="inputfield"></input><br>
