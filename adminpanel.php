@@ -173,6 +173,23 @@
       else {
         echo "Bitte wählen Sie eine Option aus.";
       }
+if($_POST['edituser'] == "edit")
+{
+
+}
+
+if (['editfilm']=="edit") {
+  $_SESSION["edit"]=
+}
+
+if (['editdirector']=="edit") {
+  // code...
+}
+
+if ({'editrating'}=="edit") {
+  // code...
+}
+
     ?>
 
     <?php
