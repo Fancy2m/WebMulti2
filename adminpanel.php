@@ -192,19 +192,16 @@ if ($_POST['editrating']=="edit") {
   $_SESSION["edittoken"]=4;
 }
 
-if(['activate']="activate")
+if($_POST['activate']="activate")
   {
 
   }
-if(["deactivate"]="deactivate")
+if($_POST["deactivate"]="deactivate")
 {
 
 }
 
     ?>
 
-    <?php
-
-    ?>
   </body>
 </html>
