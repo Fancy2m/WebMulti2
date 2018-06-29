@@ -38,11 +38,11 @@
             echo "<td>" . $row['rechte'] . "</td>";
             if ($row['rechte']==0)
               {
-                echo "<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate" label="Aktivieren">Aktivieren!</td>";
+                echo "<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate" label="Aktivieren">Aktivieren!</button></form></td>";
               }
 
             else {
-              echo "<td><form action="adminpanel.php" method="POST"><button type="submit" name="deactivate" value="deactivate" label="Dektivieren">Aktivieren!</td>";
+              echo "<td><form action="adminpanel.php" method="POST"><button type="submit" name="deactivate" value="deactivate" label="Dektivieren">Deaktivieren!</button></form></td>";
               }
            echo '<td><form action="adminpanel.php" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
@@ -193,7 +193,7 @@ if ($_POST['editrating']=="edit") {
 
 if(['activate']="activate")
   {
-    
+
   }
 if{["deactivate"]="deactivate"!}
 {
