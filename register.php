@@ -67,8 +67,8 @@ else
     <input type="text" placeholder="JJJJ-MM-TT" name="geburtstag" class="inputfield"></input><br>
 		<select name="gender" class="dropdown">
 			<option value="">Auswählen...</option>
-			<option value="1">Männlich</option>
-			<option value="2">Weiblich</option>
+			<option value="M">Männlich</option>
+			<option value="W">Weiblich</option>
 		</select>
     <input type="Email" placeholder="Email-Adresse" name="email" class="inputfield"></input><br>
     <button type="submit" name="create" value="Erstellen">Erstellen</button>

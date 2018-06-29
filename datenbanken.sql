@@ -8,25 +8,24 @@ create table benutzer(
     username varchar(30),
     passwort varchar(30),
     vorname varchar (30),
-	nachname varchar (30),
+	  nachname varchar (30),
     geburtstag date,
     gender varchar (30),
     email varchar(140),
     rechte int
-    );
+);
 
-insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Marcel', 'marcel', 'Marcel', 'Rosik', '1994-07-27', 1, 'marcel.rosik@stud.hs-ruhrwest.de', 2);
-insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Daniel', 'daniel', 'Daniel', 'Keib', '1995-3-22', 1, 'daniel.keib@stud.hs-ruhrwest.de', 1);
-insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Rebecca', 'becci', 'Rebecca' ,'Fergen', '1995-07-31', 2, 'rebecca.fergen@stud.hs-ruhrwest.de', 1);
-insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Julic', 'julic', 'Julic', 'Rößling', '1993-04-25', 1, 'julic.roessling@stud.hs-ruhrwest.de', 0);
+insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Marcel', 'marcel', 'Marcel', 'Rosik', '1994-07-27', 'M', 'marcel.rosik@stud.hs-ruhrwest.de', 2);
+insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Daniel', 'daniel', 'Daniel', 'Keib', '1995-3-22', 'M', 'daniel.keib@stud.hs-ruhrwest.de', 1);
+insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Rebecca', 'becci', 'Rebecca' ,'Fergen', '1995-07-31', 'W', 'rebecca.fergen@stud.hs-ruhrwest.de', 1);
+insert into benutzer (user_ID, username, passwort, vorname, nachname, geburtstag, gender, email, rechte) VALUES ('NULL', 'Julic', 'julic', 'Julic', 'Rößling', '1993-04-25', 'M', 'julic.roessling@stud.hs-ruhrwest.de', 0);
 
 
-
-	create table director(
-	director_id int primary key not null auto_increment,
-	dvorname varchar(50),
-	dnachname varchar(50)
-	);
+create table director(
+    director_id int primary key not null auto_increment,
+    dvorname varchar(50),
+    dnachname varchar(50)
+);
 
 insert into director (director_id, dvorname, dnachname) Values ('NULL', 'David', 'Fincher');
 insert into director (director_id, dvorname, dnachname) Values ('NULL', 'Quentin', 'Tarantino');
@@ -38,13 +37,13 @@ create table film(
     film_ID int primary key not null auto_increment,
     name varchar(200),
     erscheinungsjahr int,
-	director_fid int not null,
-	beschreibung varchar (2000),
-	avgrating double (2,2),
-	bild varchar (200),
-	fsk int,
-	foreign key (director_fid) references
-	director(director_id) on delete restrict on update cascade
+	  director_fid int not null,
+	  beschreibung varchar (2000),
+	  avgrating double (2,2),
+	  bild varchar (200),
+	  fsk int,
+	  foreign key (director_fid) references
+	  director(director_id) on delete restrict on update cascade
     );
 
 insert into film (film_ID, name, erscheinungsjahr, director_fid, beschreibung, bild, fsk) Values ('NULL', 'Fight Club', '1999', '1', 'Eine ganze Generation von Männern, die Zweitgeborenen der Geschichte,
@@ -95,9 +94,9 @@ create table rating (
 	benutzer(user_ID) on delete restrict on update cascade,
 	foreign key (film_rid) references
 	film(film_ID) on delete restrict on update cascade
-	);
+);
 
-  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('1', '2', '1', 'kjdlfkHDSLAKHFLKASHDLKFJ', '7', '2018-06-28');
-  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('2', '3', '5', 'adjlakshdflkjahsldkjf', '2', '2018-06-28');
-  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('3', '1', '3', 'LEEEEEEEL', '5', '2018-06-28');
-  INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('4', '4', '4', 'XDDDDDD WAR GOIIIIIL SHEEEESH', '10', '2018-06-28');
+INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('1', '2', '1', 'kjdlfkHDSLAKHFLKASHDLKFJ', '7', '2018-06-28');
+INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('2', '3', '5', 'adjlakshdflkjahsldkjf', '2', '2018-06-28');
+INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('3', '1', '3', 'LEEEEEEEL', '5', '2018-06-28');
+INSERT INTO `rating` (`rating_ID`, `user_rid`, `film_rid`, `commnt`, `wert`, `datum`) VALUES ('4', '4', '4', 'XDDDDDD WAR GOIIIIIL SHEEEESH', '10', '2018-06-28');
