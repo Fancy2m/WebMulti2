@@ -175,19 +175,19 @@
       }
 if($_POST['edituser'] == "edit")
 {
-
+  $_SESSION["edit"]=1;
 }
 
 if (['editfilm']=="edit") {
-  $_SESSION["edit"]=
+  $_SESSION["edit"]=2;
 }
 
 if (['editdirector']=="edit") {
-  // code...
+  $_SESSION["edit"]=3;
 }
 
 if ({'editrating'}=="edit") {
-  // code...
+  $_SESSION["edit"]=4;
 }
 
     ?>
