@@ -49,3 +49,7 @@ button:hover {
   transition: ease-in-out, .1s ease-in-out;
   background-color: #00585F
 }
+table
+{
+  background-color: red
+}
