@@ -1,10 +1,9 @@
 <?php
 include "adminmenu.php";
-$wert = $_SESSION["edit"];
-
-if($wert==1)
+session_start();
+if($_SESSION["edit"]==1)
 {
-  echo "Hier stehen Userdaten $wert";
+  echo "Hier stehen Userdaten" . $_SESSION["edit"];
   if(!$link=mysqli_connect("127.0.0.1","root",""))
   {
     echo "Verbindungsaufbau gescheitert.";
