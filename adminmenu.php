@@ -13,6 +13,9 @@
         <button onClick="window.location.href='adminpanel.php?var=4'">Rating-Verwaltung</button>
         <form action="loginpage.php" method="POST">
           <button type="submit" name="lgbutton" value="Logout">Ausloggen</button>
+    <?php
+      include "usermenu.php"
+    ?>
         </form>
     </div>
   </body>

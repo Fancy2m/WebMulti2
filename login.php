@@ -32,7 +32,7 @@
 				{
 					if($row->rechte==2)
 					{
-						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=adminpage.php></body></html>";
+						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=adminpanel.php></body></html>";
 					}
 					else
 					{
@@ -50,7 +50,7 @@
 	if($_POST['lgbutton']=="Logout")
 	{
 		session_destroy();
-		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=login.php></body></html>";
+		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=loginpage.php></body></html>";
 	}
 ?>
 
@@ -66,6 +66,9 @@
 				echo '<form action="login.php" method="POST">
 							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
 							</form>';
+			}
+			if ($_SESSION['rechte']==2) {
+				include "adminmenu.php";
 			}
 			else{
 				echo '<form action="login.php" method="POST">
