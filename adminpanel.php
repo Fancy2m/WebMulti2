@@ -38,14 +38,15 @@
             echo "<td>" . $row['username'] . "</td>";
             echo "<td>" . $row['email'] . "</td>";
             echo "<td>" . $row['rechte'] . "</td>";
+
             if ($row['rechte']==0)
               {
-                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate">Aktivieren</button></form></td>';
+                echo '<td><form action="adminpanel.php" method="POST"><button type="submit" name="activate" value="activate">Nein!</button></form></td>';
               }
 
             else
               {
-                echo '<td><form action="editdata.php" method="POST"><button type="submit" name="deactivate" value="deactivate">Deaktivieren</button></form></td>';
+              echo '<td><form action="editdata.php" method="POST"><button type="submit" name="deactivate" value="deactivate">Ja</button></form></td>';
               }
            echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
@@ -179,10 +180,10 @@
       else {
         echo "Bitte wählen Sie eine Option aus.";
       }
-    }
-    else {
+
+  /*  else {
       echo "Sie haben das Recht dazu!! YOU SHALL NOT PASS!!!!11einself";
-    }
+    }*/
     ?>
 
   </body>
