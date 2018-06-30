@@ -58,7 +58,8 @@ font-family: sans-serif;
     border-bottom: 4px solid #00585F;
     width: 500px;
     height: 300px;
-    outline: none
+    outline: none;
+    resize: vertical;
   }
 
   select {
