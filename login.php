@@ -18,12 +18,13 @@
 			$row=mysqli_fetch_object($ergebnis);
 			$_SESSION["accname"]=$row->username;
 			$_SESSION["gruppe"]=$row->rechte;
-			$_SESSION["login"]="1";
 
 			if($row->passwort==$passwort)
 			{
+				$_SESSION["login"]="1";
 				if($row->rechte==1)
 				{
+
 					echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
 				}
 				else
@@ -59,7 +60,14 @@
 	</head>
 	<body>
 		<?php
-			if ($_SESSION["login"]==0) {
+			if($_SESSION['login']==1) {
+				include "adminmenu.php";
+				echo "Sie sind bereits eingeloggt.";
+				echo '<form action="login.php" method="POST">
+							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
+							</form>';
+			}
+			else{
 				echo '<form action="login.php" method="POST">
 								<div class="center" >
 									<input type="text" placeholder="Benutzername" name="lname"><br>
@@ -69,13 +77,6 @@
 							</form>';
 			}
 
-			else {
-				include "adminmenu.php";
-				echo "Sie sind bereits eingeloggt.";
-				echo '<form action="login.php" method="POST">
-							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
-							</form>';
-			}
 		?>
 	</body>
 </html>
