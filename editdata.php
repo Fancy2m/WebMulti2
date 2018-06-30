@@ -2,6 +2,23 @@
 <link rel="stylesheet" href="layout.css">
 <?php
 session_start();
+if ($_POST['edituser']=='edit') {
+  $_SESSION['edittoken']="1";
+}
+
+if ($_POST['editfilm']=='edit') {
+  $_SESSION['edittoken']="2";
+}
+
+if ($_POST['editdirector']=='edit') {
+  $_SESSION['edittoken']="3";
+}
+
+if ($_POST['editrating']=='edit') {
+  $_SESSION['edittoken']="4";
+}
+
+
 if ($_SESSION['login']==1) {
   if($_SESSION['gruppe']==2) {
 
@@ -52,7 +69,7 @@ if($_SESSION["edittoken"]==1)
 
       else
         {
-          echo '<td><button value="deactivate" name="deactivate" value="deactivate" type="submit">Deaktivieren!</button></td>';
+          echo '<td><button name="deactivate" value="deactivate" type="submit">Deaktivieren!</button></td>';
         }
      echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
      echo "</tr>";
@@ -183,24 +200,6 @@ elseif ($wert==3) {
 
       mysqli_close($link);
     }
-if($_POST['edituser']=="edit")
-{
-  $_SESSION["edittoken"]="1";
-  //echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=editdata.php?var=1></body></html>";
-}
-
-if ($_POST['editfilm']=="edit") {
-  $_SESSION["edittoken"]="2";
-
-}
-
-if ($_POST['editdirector']=="edit") {
-  $_SESSION["edittoken"]="3";
-}
-
-if ($_POST['editrating']=="edit") {
-  $_SESSION["edittoken"]="4";
-}
 }
 }
 else {
