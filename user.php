@@ -17,9 +17,11 @@ session_start();
         include "usermenu.php";
         if($wert==1)
           {// Meine Daten und Statistiken
-            $abfrage="SELECT ratingID COUNT(*) FROM rating AS AnzahlRatings WHERE user_rid = '1' ";
-      			$ergebnis=mysqli_query($link,$abfrage);
-      			$row=mysqli_fetch_array($ergebnis);
+            $abfrage="SELECT COUNT(rating_ID) FROM rating AS AnzahlRatings WHERE user_rid = '1' ";
+            $link = new mysqli("127.0.0.1", "root", "", "datenbank";
+            if ($link->connect_error) {$ergebnis=$link->mysqli_query($abfrage);
+      	  	$row = $ergebnis->fetch_assoc();
+            print_r($row['AnzahlRatings']);
             echo "Willkommen,"; echo $_SESSION['nutzervorname'] ."</br>";
             echo "Du hast bereits". $ergebnis . "Ratings geschrieben!";
             echo $_SESSION['userID'];
