@@ -34,7 +34,7 @@
         echo "<td>" . $row['beschreibung']. "</input></td>";
         echo "<td>" . $row['avgrating'] . "</input></td>";
         echo "<td>" . $row['fsk'] . "</input></td>";
-        echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
+
         echo "</tr>";
         $filmid=$row['film_ID'];
         $_SESSION['id']=$filmid;

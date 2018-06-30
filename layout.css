@@ -154,6 +154,7 @@ white-space: nowrap;}
 table input:focus {transition: ease-in-out, .25s ease-in-out;           /* Safari/WebKit verwendet einen nicht standardisierten Namen */
 
 font-size: 12px}
-a.search {
-  text-shadow: 2px black
+table.search {
+  overflow: scroll;
+  max-width: 200px
 }
