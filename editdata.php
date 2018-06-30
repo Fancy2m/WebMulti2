@@ -1,5 +1,6 @@
 <?php
 if ($_SESSION['login']==1) {
+  if$_SESSION['gruppe']==2 {
 
 include "adminmenu.php";
 session_start();
@@ -196,6 +197,7 @@ if ($_POST['editdirector']=="edit") {
 
 if ($_POST['editrating']=="edit") {
   $_SESSION["edittoken"]="4";
+}
 }
 }
 else {
