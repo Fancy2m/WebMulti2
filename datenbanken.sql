@@ -52,7 +52,7 @@ geben. Auch der von Edward Norton verkörperte Protagonist und gleichzeitiger Er
 soll sich alles ändern. Der von beiden Junggesellen ins Leben gerufene Fight Club, entfesselt ungeahnte Möglichkeiten, die jedoch ebenso unkontrollierbares Ausmaß annehmen. Aus der Rache an der modernen Zivilisation
 wird schnell ein Kleinkrieg, der seine Opfer fordert. Nicht einmal die verruchte Marla Singer (Helena Bonham Carter) vermag sich diesem unaufhaltsame Treiben zu entziehen. Am Ende stehen sogar Menschenleben auf dem Spiel,
 denn aus einer anfangs harmlosen Idee ist eine unaufhaltsame Bestie geworden.',
-'/images/fight_club.jpg' ,'18');
+'images/fight_club.jpg' ,'18');
 insert into  film (film_ID, name, erscheinungsjahr, director_fid, beschreibung, bild, fsk) Values ('NULL', 'Pulp Fiction', '1994', '2', 'Was braucht man für ein gutes Stück Pulp Fiction (zu deutsch: Schundliteratur)?
 Ein Gauner-Pärchen, zwei Auftragskiller, eine Uhr, einen Koffer geheimnisvollen gold-glänzenden Inhalts, eine Menge Adrenalin in Form einer Spritze, Gespräche über das europäische metrische System von Fastfood und die Gefährlichkeit
 gewisser Fußmassagen, ein Bibelzitat (Ezekiel 25:17), einen versehentlichen Kopfschuss und einen Cleaner, einen Boxer auf der Flucht und die perverse Begegnung mit einem roten Gummiball, göttliche Vorsehung und eine Läuterung.
