@@ -129,7 +129,8 @@ button:hover {
 }
 
 table {
-  border-collapse: collapse;}
+  border-collapse: collapse;
+background-color:#FFFCC4 }
 table, th, td{
   margin:auto;
   border-radius: 5px;border-style: solid;
