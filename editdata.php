@@ -1,3 +1,5 @@
+<html>
+<link rel="stylesheet" href="layout.css">
 <?php
 session_start();
 if ($_POST['edituser']=='edit') {
@@ -204,3 +206,4 @@ else {
   echo "YOU SHALL NOT PASS!!!!";
 }
 ?>
+</html>
