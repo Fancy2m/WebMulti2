@@ -117,18 +117,27 @@ elseif($_SESSION["edittoken"]==2)
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input type='textarea' value=" . $row['film_ID'] . "></input></td>";
+      echo "<form method='POST' action='editdata.php'>";
+      echo "<td><input name='filmid' value=" . $row['film_ID'] . "></input></td>";
       echo '<td><textarea name="filmname">'; echo $row['name']; echo '</textarea></td>';
-      echo "<td><input type='textarea' value=" . $row['erscheinungsjahr'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['dnachname']. "></input></td>";
-      echo '<td><textarea class="filmdescr" name="description">'; echo $row['beschreibung']; echo '</textarea></td>';
-      echo "<td><input type='textarea' value=" . $row['avgrating'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['fsk'] . "></input></td>";
-      echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
+      echo "<td><input name='fjahr' value=" . $row['erscheinungsjahr'] . "></input></td>";
+      echo "<td><input name='filmdvname' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input name='filmdnachn' value=" . $row['dnachname']. "></input></td>";
+      echo '<td><textarea class="filmdescr" name="fdescr">'; echo $row['beschreibung']; echo '</textarea></td>';
+      echo "<td><input name='frating' value=" . $row['avgrating'] . "></input></td>";
+      echo "<td><input name='ffsk' value=" . $row['fsk'] . "></input></td>";
+      echo '<td> <button name="edit2"  value="edit" type="submit">Speichern</button> </td>';
+      echo "</form>";
       echo "</tr>";
     }
     echo "</table>";
+    if($_POST['edit2'] == "edit")
+    {
+      $update="update film set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', dvorname='".$_POST['filmdvname']."', dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+      echo $ID;
+      echo $update;
+      mysqli_query($link,$update);
+    }
     mysqli_close($link);
   }
 }

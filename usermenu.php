@@ -1,12 +1,3 @@
-<?php
-session_start();
-if ($_SESSION['login']==1) {
-  echo "Ja";
-}
-else {
-  echo "NEIN!!!";
-}?>
-
 <html>
 <link rel="stylesheet" href="layout.css">
   <head>
