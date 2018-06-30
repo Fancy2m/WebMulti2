@@ -10,6 +10,7 @@ session_start();
 <body>
   <h1> <a href="/webmulti2/index.php">Film DB</a></h1>
   <?php
+include "searchtest1.php";
 
   switch ($_SESSION['gruppe']) {
     case '1':
