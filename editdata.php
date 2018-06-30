@@ -31,14 +31,14 @@ if($_SESSION["edittoken"]==1)
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input value=" .$row['user_ID']. "></input></td>";
-      echo "<td><input value=" . $row['username'] . "></input></td>";
-      echo "<td><input value=" . $row['email'] . "></input></td>";
-      echo "<td><input value=" . $row['vorname'] . "></input></td>";
-      echo "<td><input value=" . $row['nachname'] . "></input></td>";
-      echo "<td><input value=" . $row['geburtstag'] . "></input></td>";
-      echo "<td><input value=" . $row['gender'] . "></input></td>";
-      echo "<td><input value=" . $row['rechte'] . "></input></td>";
+      echo "<td><input type='textarea' value=" .$row['user_ID']. "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['username'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['email'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['vorname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['nachname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['geburtstag'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['gender'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['rechte'] . "></input></td>";
       if ($row['rechte']==0)
         {
           echo '<td><button value="activate" value="activate" name="activate">Aktivieren!</button></td>';
@@ -68,14 +68,15 @@ elseif($_SESSION["edittoken"]==2)
   {
     mysqli_set_charset($link,"utf8");
     $db=mysqli_select_db($link,"webmult");
-    $result = mysqli_query($link,"SELECT * FROM film WHERE film_ID='$ID'");
+    $result = mysqli_query($link,"SELECT * FROM film, director WHERE director.director_ID LIKE film.director_fid AND film.film_ID='$ID'");
 
     echo "<table border='1'>
     <tr>
     <th>Film-ID</th>
     <th>Filmtitel</th>
     <th>Erscheinungsjahr</th>
-    <th>Director</th>
+    <th>Directorvorname</th>
+    <th>Director Nachname</th>
     <th>Beschreibung</th>
     <th>Durchschnittsrating</th>
     <th>Altersfreigabe</th>
@@ -84,19 +85,18 @@ elseif($_SESSION["edittoken"]==2)
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input value=" .$row['film_ID']. "></input></td>";
-      echo "<td><input value=" . $row['name'] . "></input></td>";
-      echo "<td><input value=" . $row['erscheinungsjahr'] . "></input></td>";
-      echo "<td><input value=" . $row['dvorname'];  echo '&nbsp'; echo $row['dnachname'];
-      echo "<td><input value=" . $row['nachname'] . "></input></td>";
-      echo "<td><input value=" . $row['beschreibung'] . "></input></td>";
-      // WIe Bild ändern??? echo "<td><input value=" . $row['gender'] . "></input></td>";
-      echo "<td><input value=" . $row['fsk'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['film_ID'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['name'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['erscheinungsjahr'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dnachname']. "></input></td>";
+      echo '<td><textarea name="description">'; echo $row['beschreibung']; echo '</textarea></td>';
+      echo "<td><input type='textarea' value=" . $row['avgrating'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['fsk'] . "></input></td>";
       echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
       echo "</tr>";
     }
     echo "</table>";
-
     mysqli_close($link);
   }
 }
@@ -124,9 +124,9 @@ elseif ($wert==3) {
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input value=" . $row['directorid'] . "></input></td>";
-      echo "<td><input value=" . $row['dvorname'] . "></input></td>";
-      echo "<td><input value=" . $row['dnachname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['directorid'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
       echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
 }
       echo "</tr>";
@@ -164,11 +164,11 @@ elseif ($wert==3) {
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
-        echo "<td><input value=" . $row['rating_ID'] . "></input></td>";
-        echo "<td><input value=" . $row['name'] . "></input></td>";
-        echo "<td><input value=" . $row['username'] . "></input></td>";
-        echo "<td><input value=" . $row['wert'] . "></input></td>";
-        echo "<td><input value=" . $row['commnt'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['rating_ID'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['name'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['username'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['wert'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['commnt'] . "></input></td>";
         echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
       }
         echo "</tr>";
