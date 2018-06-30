@@ -63,7 +63,7 @@
 		<?php
 			if($_SESSION['login']==1) {
 				echo "Sie sind bereits eingeloggt.";
-				echo '<form action="login.php" method="POST">
+				echo '<form action="loginpage.php" method="POST">
 							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
 							</form>';
 			}
@@ -71,7 +71,7 @@
 				include "adminmenu.php";
 			}
 			else{
-				echo '<form action="login.php" method="POST">
+				echo '<form action="loginpage.php" method="POST">
 								<div class="center" >
 									<input type="text" placeholder="Benutzername" name="lname"><br>
 									<input type="password" placeholder="Passwort" name="lpass"><br>
