@@ -4,7 +4,7 @@
   </head>
   <body>
     <div class=usermenu>
-    <button onClick="window.location.href='user.php?var=1'">Nutzerverwaltung</button>
+    <button onClick="window.location.href='user.php?var=1'">Profil</button>
       <button onClick='window.location.href="user.php?var=2"'>Mein Konto</button>
       <button onClick='window.location.href="user.php?var=3"'>Meine Bewertungen</button>
       <form action='loginpage.php' method='POST'>

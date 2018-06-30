@@ -17,12 +17,13 @@
 			$ergebnis=mysqli_query($link,$abfrage);
 			$row=mysqli_fetch_object($ergebnis);
 			$_SESSION["accname"]=$row->username;
+			$_SESSION["nutzervorname"]=$row->vorname;
 			$_SESSION["gruppe"]=$row->rechte;
-			$_SESSION["Nutzervorname"]=$row->vorname;
-
+		}
 			if($row->passwort==$passwort)
 			{
 				$_SESSION["login"]="1";
+
 				if($row->rechte==1)
 				{
 
@@ -46,7 +47,7 @@
 			}
 			mysqli_close($link);
 		}
-	}
+
 
 ?>
 

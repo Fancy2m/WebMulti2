@@ -1,15 +1,18 @@
+<?php
+session_start();
+ ?>
 <html>
 <link rel="stylesheet" href="layout.css">
   <body>
     <?php
       $wert = $_GET['var'];
-      session_start();
+
       if ($_SESSION['login']==1)
       {
         include "usermenu.php";
         if($wert==1)
           {// Meine Daten und Statistiken
-            echo "Willkommen," .$_SESSION['Nutzervorname'];
+            echo "Willkommen,"; echo $_SESSION["nutzervorname"];
             //So und so viele Beiträge verfasst
           }
 
