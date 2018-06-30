@@ -17,6 +17,10 @@ a {
   background-color: #009393;
   padding: 10px 15px;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px 1px black
+  box-shadow: 0px 0px 5px 1px black;
 
+}
+a .login {
+  position:absolute;
+   left: 80%
 }
