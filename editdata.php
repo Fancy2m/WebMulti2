@@ -91,7 +91,7 @@ if($_SESSION["edittoken"]==1)
 
 elseif($_SESSION["edittoken"]==2)
 {
-  echo "Hier stehen Filmdaten" . $_SESSION["edittoken"];
+  echo "Hier stehen Filmdaten" . $_SESSION["edittoken"] . $ID;
   if(!$link=mysqli_connect("127.0.0.1","root",""))
   {
     echo "Verbindungsaufbau gescheitert.";
@@ -126,18 +126,11 @@ elseif($_SESSION["edittoken"]==2)
       echo '<td><textarea class="filmdescr" name="fdescr">'; echo $row['beschreibung']; echo '</textarea></td>';
       echo "<td><input name='frating' value=" . $row['avgrating'] . "></input></td>";
       echo "<td><input name='ffsk' value=" . $row['fsk'] . "></input></td>";
-      echo '<td> <button name="edit2"  value="edit" type="submit">Speichern</button> </td>';
+      echo '<td> <button name="edit2" value="edit" type="submit" >Speichern</button> </td>';
       echo "</form>";
       echo "</tr>";
     }
     echo "</table>";
-    if($_POST['edit2'] == "edit")
-    {
-      $update="update film set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', dvorname='".$_POST['filmdvname']."', dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
-      echo $ID;
-      echo $update;
-      mysqli_query($link,$update);
-    }
     mysqli_close($link);
   }
 }
@@ -161,6 +154,7 @@ elseif ($_SESSION["edittoken"]==3) {
     <th>Nachname</th>
     <th>Bearbeiten</th>
     </tr>";
+
 
     while($row = mysqli_fetch_array($result))
     {
@@ -222,6 +216,12 @@ elseif ($_SESSION["edittoken"]==3) {
 }
 else {
   echo "YOU SHALL NOT PASS!!!!";
+}
+
+if($_POST['edit2'] == "edit")
+{
+  $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', dvorname='".$_POST['filmdvname']."', dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+  mysqli_query($link,$update);
 }
 ?>
 </html>
