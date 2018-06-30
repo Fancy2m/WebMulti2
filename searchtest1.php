@@ -20,7 +20,7 @@
       <th>Director Vorname</th>
       <th>Director Nachname</th>
       <th>Beschreibung</th>
-      <th>Durchschnifttsrating</th>
+      <th>Durchschnittsrating</th>
       <th>Altersfreigabe</th>
       </tr>";
 
