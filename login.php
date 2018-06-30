@@ -32,7 +32,7 @@
 				{
 					if($row->rechte==2)
 					{
-						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=loginpage.php></body></html>";
+						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
 					}
 					else
 					{
