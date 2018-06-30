@@ -26,9 +26,9 @@
         echo '<td><a class="search" href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
         echo "<td>" . $row['dvorname'] . "</input></td>";
         echo "<td>" . $row['dnachname'] . "</input></td>";
+        $filmid=$row['film_ID'];
 			}
         echo "</tr>";
-        $filmid=$row['film_ID'];
         $_SESSION['id']=$filmid;
       }
 
