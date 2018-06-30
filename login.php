@@ -47,11 +47,7 @@
 			mysqli_close($link);
 		}
 	}
-	if($_POST['lgbutton']=="Logout")
-	{
-		session_destroy();
-		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=loginpage.php></body></html>";
-	}
+
 ?>
 
 <html>
