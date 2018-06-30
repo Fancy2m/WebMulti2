@@ -126,16 +126,21 @@ elseif($_SESSION["edittoken"]==2)
       echo '<td><textarea class="filmdescr" name="fdescr">'; echo $row['beschreibung']; echo '</textarea></td>';
       echo "<td><input name='frating' value=" . $row['avgrating'] . "></input></td>";
       echo "<td><input name='ffsk' value=" . $row['fsk'] . "></input></td>";
-      echo '<td> <button name="edit2" onClick="window.location.href="editdata.php?var="'.$ID.'" value="edit" type="submit" >Speichern</button> </td>';
+      echo '<td> <button name="edit2" value="edit" type="submit" >Speichern</button> </td>';
       echo "</form>";
       echo "</tr>";
     }
     echo "</table>";
+<<<<<<< HEAD
+=======
     if($_POST['edit2'] == "edit")
     {
-      $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', dvorname='".$_POST['filmdvname']."', dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+      $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', director.dvorname='".$_POST['filmdvname']."', director.dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+      echo $ID;
+      echo $update;
       mysqli_query($link,$update);
     }
+>>>>>>> 457b0b43d49e2944baa832c7975a1e905d5c9660
     mysqli_close($link);
   }
 }
@@ -221,6 +226,12 @@ elseif ($_SESSION["edittoken"]==3) {
 }
 else {
   echo "YOU SHALL NOT PASS!!!!";
+}
+
+if($_POST['edit2'] == "edit")
+{
+  $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', dvorname='".$_POST['filmdvname']."', dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+  mysqli_query($link,$update);
 }
 ?>
 </html>
