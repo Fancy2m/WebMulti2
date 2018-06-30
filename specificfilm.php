@@ -1,7 +1,9 @@
 <?php
   session_start();
   $id=$_SESSION['id'];
-  include "index.php";
+  echo $id;
+  echo "Hallo";
+
   $link=mysqli_connect("127.0.0.1","root","");
   mysqli_set_charset($link,"utf8");
   $db=mysqli_select_db($link, "webmult");
@@ -22,8 +24,9 @@
   {
     $test=$_POST['slider'];
     echo $test;
-    $update="update film set avgrating='".$_POST['slider']."' where film_ID='$id'";
-    mysqli_query($link,$abfrage);
+    echo $id;
+    $update="update film set avgrating='$test' where film_ID='$id'";
+    mysqli_query($link,$update);
   }
  ?>
 
@@ -31,7 +34,7 @@
 <body>
   <form method="POST" action="specificfilm.php">
   <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" name="slider" id="myRange">
+    <input type="range" min="1" max="10" value="5" class="slider" name="slider" id="myRange">
     <button type="submit" name="doit" value="raten">Rate me</button>
   </div>
 </body>

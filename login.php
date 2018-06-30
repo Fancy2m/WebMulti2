@@ -19,6 +19,7 @@
 			$_SESSION["accname"]=$row->username;
 			$_SESSION["gruppe"]=$row->rechte;
 			$_SESSION["Nutzervorname"]=$row->vorname;
+			$_SESSION["UserID"]=$row->user_ID;
 
 			if($row->passwort==$passwort)
 			{

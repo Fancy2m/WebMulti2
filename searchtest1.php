@@ -26,9 +26,10 @@
         echo '<td><a class="search" href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
         echo "<td>" . $row['dvorname'] . "</input></td>";
         echo "<td>" . $row['dnachname'] . "</input></td>";
+        $filmid=$row['film_ID'];
 			}
         echo "</tr>";
-        $_SESSION['id']=$row['film_ID'];
+        $_SESSION['id']=$filmid;
       }
 
       echo "</table>";
@@ -41,7 +42,7 @@
     <form action="index.php" method="POST">
     <input type="text" name="search">
     <button type="submit" name="suchen" value="Suchen">Suchen</button>
-.
+
     </form>
   </body>
 </html>

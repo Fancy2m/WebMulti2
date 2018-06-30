@@ -74,6 +74,8 @@ if($_SESSION["edittoken"]==1)
         }
 
         echo '<td> <button name="edit1"  value="edit" type="submit">Speichern</button></form> </td>';
+        echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="dropuser"  value="drop" type="submit">loeschen</button> </form> </td>';
+
      echo "</tr>";
     }
     echo "</table>";
@@ -83,6 +85,13 @@ if($_SESSION["edittoken"]==1)
       echo $ID;
       echo $update;
       mysqli_query($link,$update);
+    }
+    if($_POST['dropuser'] == "drop")
+    {
+      $drop="update benutzer set username='".$_POST['username']."', email='".$_POST['email']."', vorname='".$_POST['vname']."', nachname='".$_POST['nname']."', geburtstag='".$_POST['bday']."', gender='".$_POST['gender']."', rechte='".$_POST['rechte']."' where user_id='".$_POST['id']."'";
+      echo $ID;
+      echo $update;
+      mysqli_query($link,$drop);
     }
 
     mysqli_close($link);
