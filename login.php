@@ -67,9 +67,7 @@
 							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
 							</form>';
 			}
-			if ($_SESSION['rechte']==2) {
-				include "adminmenu.php";
-			}
+
 			else{
 				echo '<form action="loginpage.php" method="POST">
 								<div class="center" >
@@ -78,6 +76,10 @@
 									<button type="submit" value="Login" name="lbutton">Login</button>
 								</div>
 							</form>';
+			if ($_SESSION['rechte']==2) {
+				include "adminmenu.php";
+			}
+
 			}
 
 		?>
