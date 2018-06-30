@@ -147,7 +147,7 @@ elseif ($_SESSION["edittoken"]==3) {
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input type='textarea' value=" . $row['directorid'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['director_id'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
       echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
