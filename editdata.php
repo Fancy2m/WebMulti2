@@ -73,7 +73,7 @@ if($_SESSION["edittoken"]==1)
         }
       if($_POST['edit'] == "edit")
       {
-        $update="update benutzer set username='".$_POST['username']."', email='".$_POST['email']."', vorname='".$_POST['vname']."', nachname='".$_POST['nname']."', geburtstag='".$_POST['bday']."', gender='".$_POST['gender']."', rechte='".$_POST['rechte']."' where user_id='$ID'";
+        $update="update benutzer set username=".$_POST['username'].", email=".$_POST['email'].", vorname=".$_POST['vname'].", nachname=".$_POST['nname'].", geburtstag=".$_POST['bday'].", gender=".$_POST['gender'].", rechte=".$_POST['rechte']." where user_id='$ID'";
         mysqli_query($link,$update);
       }
         echo '<td> <form action="editdata.php" method="POST"><button name="edit1"  value="edit" type="submit">Speichern</button> </td>';
