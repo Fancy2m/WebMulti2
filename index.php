@@ -16,6 +16,7 @@ session_start();
       break;
     case '2';
       include "adminmenu.php";
+      break;
     default:
     echo '
       <a class="login" href="/webmulti2/loginpage.php">Login</a>
