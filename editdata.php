@@ -1,4 +1,6 @@
 <?php
+if ($_SESSION['login']==1) {
+
 include "adminmenu.php";
 session_start();
 $ID = $_GET['var'];
@@ -194,5 +196,9 @@ if ($_POST['editdirector']=="edit") {
 
 if ($_POST['editrating']=="edit") {
   $_SESSION["edittoken"]="4";
+}
+}
+else {
+  echo "YOU SHALL NOT PASS!!!!";
 }
 ?>

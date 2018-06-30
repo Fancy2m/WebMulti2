@@ -3,7 +3,8 @@
   <body>
     <?php
     session_start();
-      include "adminmenu.php";
+    if($_SESSION['login']==1)
+    {  include "adminmenu.php";
       $wert = $_GET['var'];
       $i = 1;
 
@@ -178,6 +179,11 @@
       else {
         echo "Bitte wählen Sie eine Option aus.";
       }
+    }
+
+    else {
+      echo "Sie haben das Recht dazu!! YOU SHALL NOT PASS!!!!11einself";
+    }
     ?>
 
   </body>
