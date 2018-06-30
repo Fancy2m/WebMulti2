@@ -9,10 +9,22 @@ session_start();
 
       if ($_SESSION['login']==1)
       {
+        if(!$link=mysqli_connect("127.0.0.1","root",""))
+  		{
+  			echo "Verbindungsaufbau gescheitert.";
+  		}
+  		else
+  		{
         include "usermenu.php";
         if($wert==1)
           {// Meine Daten und Statistiken
-            echo "Willkommen,"; echo $_SESSION["nutzervorname"];
+
+            $abfrage='SELECT COUNT(*) FROM rating where user_rid='.$_SESSION['userID'].' LIMIT 1';
+      			$ergebnis=mysqli_query($link,$abfrage);
+      			$row=mysqli_fetch_row($ergebnis);
+            echo "Willkommen,"; echo $_SESSION['nutzervorname'] ."</br>";
+            echo "Du hast bereits". $ergebnis . "Ratings geschrieben!";
+            echo $_SESSION['userID'];
             //So und so viele Beiträge verfasst
           }
 
@@ -29,13 +41,13 @@ session_start();
           //{
 
           //}
+        else
+          {
+            echo "Sie haben nicht die Berechtigung dazu!";
+          }
+        }
       }
-    else
-    {
-      echo "Sie haben nicht die Berechtigung dazu!";
-    }
 
 ?>
-
   </body>
 </html>

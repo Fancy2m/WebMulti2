@@ -13,13 +13,13 @@
 			$username=$_POST['lname'];
 			$passwort=$_POST['lpass'];
 
-			$abfrage="select username, passwort, vorname, rechte from benutzer where username like "'$username'" LIMIT 1";
+			$abfrage="select user_ID, username, passwort, vorname, rechte from benutzer where username like '$username' LIMIT 1";
 			$ergebnis=mysqli_query($link,$abfrage);
 			$row=mysqli_fetch_object($ergebnis);
 			$_SESSION["accname"]=$row->username;
 			$_SESSION["nutzervorname"]=$row->vorname;
 			$_SESSION["gruppe"]=$row->rechte;
-			echo $username;
+			$_SESSION["userID"]=$row->user_ID;
 		}
 			if($row->passwort==$passwort)
 			{
