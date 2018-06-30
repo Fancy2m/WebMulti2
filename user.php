@@ -18,8 +18,7 @@ session_start();
         include "usermenu.php";
         if($wert==1)
           {// Meine Daten und Statistiken
-
-            $abfrage="SELECT COUNT(*) FROM rating where user_rid='".$_SESSION['userID']."' LIMIT 1";
+            $abfrage="SELECT COUNT(*) FROM rating where user_rid='.$_SESSION['userID'].' LIMIT 1";
       			$ergebnis=mysqli_query($link,$abfrage);
       			$row=mysqli_fetch_row ($ergebnis);
             echo "Willkommen,"; echo $_SESSION['nutzervorname'] ."</br>";
