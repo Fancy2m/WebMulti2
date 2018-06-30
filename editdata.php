@@ -35,7 +35,7 @@ if($_SESSION["edittoken"]==1)
   else
   {
     mysqli_set_charset($link,"utf8");
-    $db=mysqli_select_db($link,"webmult");
+    $db=mysqli_select_db($link,"webmulti2");
     $result = mysqli_query($link,"SELECT * FROM benutzer WHERE user_ID='$ID'");
 
     echo "<table border='1'>
@@ -55,13 +55,13 @@ if($_SESSION["edittoken"]==1)
     {
       echo "<tr>";
       echo "<td><input type='textarea' value=" .$row['user_ID']. "></input></td>";
-      echo "<td><input type='textarea' name="username" value=" . $row['username'] . "></input></td>";
-      echo "<td><input type='textarea' name="email" value=" . $row['email'] . "></input></td>";
-      echo "<td><input type='textarea' name="vname" value=" . $row['vorname'] . "></input></td>";
-      echo "<td><input type='textarea' name="nname" value=" . $row['nachname'] . "></input></td>";
-      echo "<td><input type='textarea' name="bday"value=" . $row['geburtstag'] . "></input></td>";
-      echo "<td><input type='textarea' name="gender" value=" . $row['gender'] . "></input></td>";
-      echo "<td><input type='textarea' name="rechte" value=" . $row['rechte'] . "></input></td>";
+      echo "<td><input type='textarea' name='username' value=" . $row['username'] . "></input></td>";
+      echo "<td><input type='textarea' name='email' value=" . $row['email'] . "></input></td>";
+      echo "<td><input type='textarea' name='vname' value=" . $row['vorname'] . "></input></td>";
+      echo "<td><input type='textarea' name='nname' value=" . $row['nachname'] . "></input></td>";
+      echo "<td><input type='textarea' name='bday'value=" . $row['geburtstag'] . "></input></td>";
+      echo "<td><input type='textarea' name='gender' value=" . $row['gender'] . "></input></td>";
+      echo "<td><input type='textarea' name='rechte' value=" . $row['rechte'] . "></input></td>";
       if ($row['rechte']==0)
         {
           echo '<td><button value="activate" value="activate" name="activate">Aktivieren!</button></td>';
@@ -73,7 +73,7 @@ if($_SESSION["edittoken"]==1)
         }
       if($_POST['edit'] == "edit")
       {
-        $update="update benutzer set username=$_POST['username'], email=$_POST['email'], vorname==$_POST['vname'], nachname=$_POST['nname'], geburtstag=$_POST['bday'], gender=$_POST['gender'], rechte=$_POST['rechte'] where user_id='$ID'";
+        $update="update benutzer set username='".$_POST['username']."', email='".$_POST['email']."', vorname='".$_POST['vname']."', nachname='".$_POST['nname']."', geburtstag='".$_POST['bday']."', gender='".$_POST['gender']."', rechte='".$_POST['rechte']."' where user_id='$ID'";
         mysqli_query($link,$update);
       }
         echo '<td> <form action="editdata.php" method="POST"><button name="edit1"  value="edit" type="submit">Speichern</button> </td>';
