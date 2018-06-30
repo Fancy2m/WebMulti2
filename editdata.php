@@ -124,8 +124,8 @@ elseif($_SESSION["edittoken"]==2)
   }
 }
 
-elseif ($_SESSION['edittoken']==3) {
-  echo "Hier stehen Directoren" . $_SESSION['edittoken'];
+elseif ($_SESSION["edittoken"]==3) {
+  echo "Hier stehen Directoren" . $_SESSION['edittoken']; echo "Die ID ist" . $ID;
   if(!$link=mysqli_connect("127.0.0.1","root",""))
   {
     echo "Verbindungsaufbau gescheitert.";
@@ -134,7 +134,7 @@ elseif ($_SESSION['edittoken']==3) {
   {
     mysqli_set_charset($link,"utf8");
     $db=mysqli_select_db($link,"webmult");
-    $result = mysqli_query($link,"SELECT * FROM director WHERE directorid='$ID'");
+    $result = mysqli_query($link,"SELECT * FROM director WHERE director_id='$ID'");
 
     echo "<table border='1'>
     <tr>
@@ -147,7 +147,7 @@ elseif ($_SESSION['edittoken']==3) {
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input type='textarea' value=" . $row['directorid'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['director_id'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
       echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
