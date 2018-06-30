@@ -38,7 +38,8 @@ if($_SESSION["edittoken"]==1)
     $db=mysqli_select_db($link,"webmult");
     $result = mysqli_query($link,"SELECT * FROM benutzer WHERE user_ID='$ID'");
 
-    echo "<table border='1'>
+    echo "<form action='editdata.php' method='POST'>
+    <table border='1'>
     <tr>
     <th>Nutzer-ID</th>
     <th>Benutzername</th>
@@ -54,7 +55,7 @@ if($_SESSION["edittoken"]==1)
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input type='textarea' value=" .$row['user_ID']. "></input></td>";
+      echo "<td><input type='textarea' name='id' value=" .$row['user_ID']. "></input></td>";
       echo "<td><input type='textarea' name='username' value=" . $row['username'] . "></input></td>";
       echo "<td><input type='textarea' name='email' value=" . $row['email'] . "></input></td>";
       echo "<td><input type='textarea' name='vname' value=" . $row['vorname'] . "></input></td>";
@@ -71,15 +72,18 @@ if($_SESSION["edittoken"]==1)
         {
           echo '<td><button name="deactivate" value="deactivate" type="submit">Deaktivieren!</button></td>';
         }
-      if($_POST['edit'] == "edit")
-      {
-        $update="update benutzer set username=".$_POST['username'].", email=".$_POST['email'].", vorname=".$_POST['vname'].", nachname=".$_POST['nname'].", geburtstag=".$_POST['bday'].", gender=".$_POST['gender'].", rechte=".$_POST['rechte']." where user_id='$ID'";
-        mysqli_query($link,$update);
-      }
-        echo '<td> <form action="editdata.php" method="POST"><button name="edit1"  value="edit" type="submit">Speichern</button> </td>';
+
+        echo '<td> <button name="edit1"  value="edit" type="submit">Speichern</button></form> </td>';
      echo "</tr>";
     }
     echo "</table>";
+    if($_POST['edit1'] == "edit")
+    {
+      $update="update benutzer set username='".$_POST['username']."', email='".$_POST['email']."', vorname='".$_POST['vname']."', nachname='".$_POST['nname']."', geburtstag='".$_POST['bday']."', gender='".$_POST['gender']."', rechte='".$_POST['rechte']."' where user_id='".$_POST['id']."'";
+      echo $ID;
+      echo $update;
+      mysqli_query($link,$update);
+    }
 
     mysqli_close($link);
   }
