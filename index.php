@@ -7,5 +7,5 @@
 <body>
   <h1>Film DB</h1>
   <a class="login" href="/webmulti2/login.php">Login</a>
-  <a class="login" href="/webmulti2/register.php">Registrieren</a>
+  <a class="login" href="/webmulti2/registerpage.php">Registrieren</a>
 </body>
