@@ -151,7 +151,7 @@ elseif ($_SESSION['edittoken']==3) {
       echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
       echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
-}
+    }
       echo "</tr>";
     }
     echo "</table>";
@@ -188,10 +188,10 @@ elseif ($_SESSION['edittoken']==3) {
       {
         echo "<tr>";
         echo "<td><input type='textarea' value=" . $row['rating_ID'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['name'] . "></input></td>";
+        echo '<td><textarea name="filmname">'; echo $row['name']; echo '</textarea></td>';
         echo "<td><input type='textarea' value=" . $row['username'] . "></input></td>";
         echo "<td><input type='textarea' value=" . $row['wert'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['commnt'] . "></input></td>";
+        echo "<td><textarea class='filmdescr' name='comment'>"; echo $row['commnt']; echo "</textarea></td>";
         echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
       }
         echo "</tr>";
