@@ -1,3 +1,5 @@
+<html>
+<link rel="stylesheet" href="layout.css">
 <?php
 session_start();
 if ($_SESSION['login']==1) {
@@ -205,3 +207,4 @@ else {
   echo "YOU SHALL NOT PASS!!!!";
 }
 ?>
+</html>
