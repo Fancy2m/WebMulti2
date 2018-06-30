@@ -16,6 +16,7 @@ a{
   color: white
 }
  a.login{
+  
   display: inline;
   color:white;
   margin: auto;
@@ -32,6 +33,7 @@ a:hover.login  {
 
 }
 .center{
+  transition: ease-in-out, .55s ease-in-out;
   display: block;
   margin: auto;
   width:fit-content;

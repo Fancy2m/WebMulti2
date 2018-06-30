@@ -50,7 +50,7 @@
 	if($_POST['lgbutton']=="Logout")
 	{
 		session_destroy();
-		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=login.php></body></html>";
+		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=loginpage.php></body></html>";
 	}
 ?>
 
@@ -63,12 +63,12 @@
 		<?php
 			if($_SESSION['login']==1) {
 				echo "Sie sind bereits eingeloggt.";
-				echo '<form action="login.php" method="POST">
+				echo '<form action="loginpage.php" method="POST">
 							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
 							</form>';
 			}
 			else{
-				echo '<form action="login.php" method="POST">
+				echo '<form action="loginpage.php" method="POST">
 								<div class="center" >
 									<input type="text" placeholder="Benutzername" name="lname"><br>
 									<input type="password" placeholder="Passwort" name="lpass"><br>
