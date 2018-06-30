@@ -1,4 +1,3 @@
-<<<<<<< current
 <html>
 <link rel="stylesheet" href="layout.css">
   <body>
