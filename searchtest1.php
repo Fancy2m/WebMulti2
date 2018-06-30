@@ -46,7 +46,7 @@
   <body>
     <form action="searchtest1.php" method="POST">
     <input type="text" name="search">
-    <input type="submit" name="suchen" value="Suchen">
+    <button type="submit" name="suchen" value="Suchen">Suchen</button>
 
     </form>
   </body>
