@@ -35,7 +35,7 @@ if($_SESSION["edittoken"]==1)
   else
   {
     mysqli_set_charset($link,"utf8");
-    $db=mysqli_select_db($link,"webmulti2");
+    $db=mysqli_select_db($link,"webmult");
     $result = mysqli_query($link,"SELECT * FROM benutzer WHERE user_ID='$ID'");
 
     echo "<table border='1'>
