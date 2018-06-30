@@ -13,12 +13,13 @@
 			$username=$_POST['lname'];
 			$passwort=$_POST['lpass'];
 
-			$abfrage="select username, passwort, rechte from benutzer where username like '$username' LIMIT 1";
+			$abfrage="select username, passwort, vorname, rechte from benutzer where username like "'$username'" LIMIT 1";
 			$ergebnis=mysqli_query($link,$abfrage);
 			$row=mysqli_fetch_object($ergebnis);
 			$_SESSION["accname"]=$row->username;
 			$_SESSION["nutzervorname"]=$row->vorname;
 			$_SESSION["gruppe"]=$row->rechte;
+			echo $username;
 		}
 			if($row->passwort==$passwort)
 			{
@@ -26,7 +27,6 @@
 
 				if($row->rechte==1)
 				{
-
 					echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
 				}
 				else
@@ -47,8 +47,6 @@
 			}
 			mysqli_close($link);
 		}
-
-
 ?>
 
 <html>
