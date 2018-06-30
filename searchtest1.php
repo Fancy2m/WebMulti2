@@ -28,8 +28,7 @@
         echo "<td>" . $row['dnachname'] . "</input></td>";
 			}
         echo "</tr>";
-        $filmid=$row['film_ID'];
-        $_SESSION['id']=$filmid;
+        $_SESSION['id']=$row['film_ID'];
       }
 
       echo "</table>";

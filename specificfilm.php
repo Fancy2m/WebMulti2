@@ -1,7 +1,7 @@
 <?php
   session_start();
   $id=$_SESSION['id'];
-
+  include "index.php";
   $link=mysqli_connect("127.0.0.1","root","");
   mysqli_set_charset($link,"utf8");
   $db=mysqli_select_db($link, "webmult");
@@ -17,9 +17,6 @@
     echo $row['beschreibung'];
     echo $row['avgrating'];
     echo $row['fsk'];
-
-
-
   }
 
  ?>
