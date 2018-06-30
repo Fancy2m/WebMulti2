@@ -11,7 +11,7 @@
 			mysqli_set_charset($link,"utf8");
 			$db=mysqli_select_db($link, "webmult");
       $suche=$_POST['search'];
-			$abfrage="select film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film.name like '%$suche%' or director.dnachname like '%$suche%'";
+			$abfrage="select film.film_ID, film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film.name like '%$suche%' or director.dnachname like '%$suche%'";
 			$result=mysqli_query($link,$abfrage);
       echo "<table border='1'>
       <tr>
@@ -27,16 +27,21 @@
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
-        echo '<td><a href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
-        echo "<td><input type='textarea' value=" . $row['erscheinungsjahr'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['beschreibung']. "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['avgrating'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['fsk'] . "></input></td>";
-        echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
+        echo '<td><a class="search" href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
+        echo "<td>" . $row['erscheinungsjahr'] . "</input></td>";
+        echo "<td>" . $row['dvorname'] . "</input></td>";
+        echo "<td>" . $row['dnachname'] . "</input></td>";
+        echo "<td>" . $row['beschreibung']. "</input></td>";
+        echo "<td>" . $row['avgrating'] . "</input></td>";
+        echo "<td>" . $row['fsk'] . "</input></td>";
+
         echo "</tr>";
+        $filmid=$row['film_ID'];
+        $_SESSION['id']=$filmid;
       }
+
+
+
       echo "</table>";
 		}
   }
