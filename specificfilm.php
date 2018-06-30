@@ -18,11 +18,21 @@
     echo $row['avgrating'];
     echo $row['fsk'];
   }
-
+  if($_POST['doit']=="raten")
+  {
+    $test=$_POST['slider'];
+    echo $test;
+    $update="update film set avgrating='".$_POST['slider']."' where film_ID='$id'";
+    mysqli_query($link,$abfrage);
+  }
  ?>
 
 <html>
 <body>
-
+  <form method="POST" action="specificfilm.php">
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" name="slider" id="myRange">
+    <button type="submit" name="doit" value="raten">Rate me</button>
+  </div>
 </body>
 </html>
