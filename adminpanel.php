@@ -5,7 +5,7 @@
     <?php
     session_start();
     if($_SESSION['login']==1)
-    {  include "adminmenu.php"
+    {  include "adminmenu.php";
       $wert = $_GET['var'];
       $i = 1;
 
