@@ -22,8 +22,10 @@ a {
   text-decoration: none;
 
 }
-a .login {
-margin-left: 20px
+a:hover {
+  transition: ease-in-out, .25s ease-in-out;
+  background-color: #00585F;
+
 }
 .center{
   display: block;
