@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION['login']==1) {
   echo '<div class=usermenu>
-    <!--<form action="adminmenu.php" method="GET"> -->
+    <!--<form action="usermenu.php" method="GET"> -->
       <button onClick="window.location.href="user.php?var=1"">Profil</button>
     <!--</form> -->
     <!-- <form action="adminmenu.php" method="GET"> -->
