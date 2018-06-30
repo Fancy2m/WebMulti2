@@ -10,6 +10,8 @@ session_start();
 <body>
   <h1> <a href="/webmulti2/index.php">Film DB</a></h1>
   <?php
+include "searchtest1.php";
+
   switch ($_SESSION['gruppe']) {
     case '1':
       include "usermenu.php";
@@ -23,5 +25,6 @@ session_start();
       <a class="login" href="/webmulti2/registerpage.php">Registrieren</a>';
       break;
   }
+
   ?>
 </body>

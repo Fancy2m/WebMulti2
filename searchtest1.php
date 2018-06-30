@@ -45,7 +45,7 @@
 <html>
 <link rel="stylesheet" href="layout.css">
   <body>
-    <form action="searchtest1.php" method="POST">
+    <form action="index.php" method="POST">
     <input type="text" name="search">
     <button type="submit" name="suchen" value="Suchen">Suchen</button>
 .
