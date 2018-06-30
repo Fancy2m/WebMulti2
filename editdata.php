@@ -124,8 +124,8 @@ elseif($_SESSION["edittoken"]==2)
   }
 }
 
-elseif ($wert==3) {
-  echo "Hier stehen Directoren. $wert";
+elseif ($_SESSION['edittoken']==3) {
+  echo "Hier stehen Directoren" . $_SESSION['edittoken'];
   if(!$link=mysqli_connect("127.0.0.1","root",""))
   {
     echo "Verbindungsaufbau gescheitert.";
@@ -159,8 +159,8 @@ elseif ($wert==3) {
     mysqli_close($link);
   }
 
-  elseif ($wert==4) {
-    echo "Hier stehen Ratings $wert";
+  elseif ($_SESSION['edittoken']==4) {
+    echo "Hier stehen Ratings" . $_SESSION['edittoken'];
     if(!$link=mysqli_connect("127.0.0.1","root",""))
     {
       echo "Verbindungsaufbau gescheitert.";
