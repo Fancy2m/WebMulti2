@@ -5,8 +5,10 @@ if ($_SESSION['login']==1) {
     <button onClick="window.location.href="user.php?var=1"">Profil</button>
     <button onClick="window.location.href="user.php?var=2"">Mein Konto</button>
     <button onClick="window.location.href="user.php?var=3"">Meine Bewertungen</button>
-    <button type="submit" name="lgbutton" value="Logout">Ausloggen</button>
-  </div>';
+    <form action="login.php" method="POST">
+      <button type="submit" name="lgbutton" value="Logout">Ausloggen</button>
+    </form>
+    </div>';
 }
 else {
   echo "NEIN!!!";
