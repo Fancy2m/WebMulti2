@@ -65,11 +65,21 @@ else
     <input type="text" placeholder="Vorname" name="vorname" class="inputfield"></input><br>
     <input type="text" placeholder="Nachname" name="nachname" class="inputfield"></input><br>
     <input type="text" placeholder="JJJJ-MM-TT" name="geburtstag" class="inputfield"></input><br>
-		<select name="gender" class="dropdown">
+		<select name="gender" class="dropdown" style="  border: 0 ;
+	  box-shadow: none !important;
+	  border-radius: 2px;
+	  border-bottom: 2px solid #009393;
+		box-sizing: content-box;
+	    background-color: white;
+	    padding: 5px 5px;
+	    margin: auto;
+	    width: 200px;
+	    height: 20px;
+	    font-size: 20px">
 			<option value="">Auswählen...</option>
 			<option value="M">Männlich</option>
 			<option value="W">Weiblich</option>
-		</select>
+		</select><br>
     <input type="Email" placeholder="Email-Adresse" name="email" class="inputfield"></input><br>
     <button type="submit" name="create" value="Erstellen">Erstellen</button>
 	</div>

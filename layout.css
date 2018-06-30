@@ -1,5 +1,5 @@
 body {
-background-color: white
+background-color: red
   }
 
 .center{
@@ -34,6 +34,17 @@ background-color: white
   width: 250px;
   height: 20px;
   outline: none}
+
+  select:active {
+    transition: ease-in-out, .25s ease-in-out;
+    box-shadow: none !important;
+    border:0;
+    border-radius: 3px;
+    border-bottom: 4px solid #00585F;
+    width: 250px;
+    height: 20px;
+    outline: none
+  }
 
 button {
   border: 0 !important;
