@@ -129,18 +129,29 @@ elseif($_SESSION["edittoken"]==2)
       echo '<td> <button name="edit2" value="edit" type="submit" >Speichern</button> </td>';
       echo "</form>";
       echo "</tr>";
+      echo "</table>";
     }
-    echo "</table>";
-<<<<<<< HEAD
-=======
+
+
     if($_POST['edit2'] == "edit")
     {
       $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', director.dvorname='".$_POST['filmdvname']."', director.dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
-      echo $ID;
-      echo $update;
       mysqli_query($link,$update);
+      echo "<tr>";
+      echo "<form method='POST' action='editdata.php'>";
+      echo "<td><input name='filmid' value=" . $_POST['filmid'] . "></input></td>";
+      echo '<td><textarea name="filmname">'; echo $_POST['filmname']; echo '</textarea></td>';
+      echo "<td><input name='fjahr' value=" . $_POST['fjahr'] . "></input></td>";
+      echo "<td><input name='filmdvname' value=" . $_POST['filmdvname'] . "></input></td>";
+      echo "<td><input name='filmdnachn' value=" . $_POST['filmdnachn']. "></input></td>";
+      echo '<td><textarea class="filmdescr" name="fdescr">'; echo $_POST['fdescr']; echo '</textarea></td>';
+      echo "<td><input name='frating' value=" . $_POST['frating'] . "></input></td>";
+      echo "<td><input name='ffsk' value=" . $_POST['ffsk'] . "></input></td>";
+      echo '<td> <button name="edit2" value="edit" type="submit" >Speichern</button> </td>';
+      echo "</form>";
+      echo "</tr>";
+      echo "</table>";
     }
->>>>>>> 457b0b43d49e2944baa832c7975a1e905d5c9660
     mysqli_close($link);
   }
 }
