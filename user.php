@@ -6,7 +6,6 @@ session_start();
   <body>
     <?php
       $wert = $_GET['var'];
-
       if ($_SESSION['login']==1)
       {
         if(!$link=mysqli_connect("127.0.0.1","root",""))
@@ -18,7 +17,7 @@ session_start();
         include "usermenu.php";
         if($wert==1)
           {// Meine Daten und Statistiken
-            $abfrage="SELECT COUNT(*) FROM rating where user_rid='.$_SESSION['userID'].' LIMIT 1";
+            $abfrage="SELECT COUNT(*) FROM rating AS AnzahlRatings WHERE number = '$_SESSION['userID']'";
       			$ergebnis=mysqli_query($link,$abfrage);
       			$row=mysqli_fetch_row ($ergebnis);
             echo "Willkommen,"; echo $_SESSION['nutzervorname'] ."</br>";
