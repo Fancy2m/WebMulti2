@@ -27,13 +27,13 @@
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
-        echo '<td><a href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
-        echo "<td><input type='textarea' value=" . $row['erscheinungsjahr'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['beschreibung']. "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['avgrating'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['fsk'] . "></input></td>";
+        echo '<td><a class="search" href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
+        echo "<td>" . $row['erscheinungsjahr'] . "</input></td>";
+        echo "<td>" . $row['dvorname'] . "</input></td>";
+        echo "<td>" . $row['dnachname'] . "</input></td>";
+        echo "<td>" . $row['beschreibung']. "</input></td>";
+        echo "<td>" . $row['avgrating'] . "</input></td>";
+        echo "<td>" . $row['fsk'] . "</input></td>";
         echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
         echo "</tr>";
       }
