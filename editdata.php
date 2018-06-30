@@ -1,6 +1,7 @@
 <?php
+session_start();
 if ($_SESSION['login']==1) {
-  if$_SESSION['gruppe']==2 {
+  if($_SESSION['gruppe']==2) {
 
 include "adminmenu.php";
 session_start();
