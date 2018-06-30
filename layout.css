@@ -1,5 +1,6 @@
 body {
-background-color: white
+background-color: white;
+font-family: sans-serif;
   }
 
 .center{
@@ -26,14 +27,39 @@ background-color: white
   font-size: 20px}
 
    input:focus {
-  transition: ease-in-out, .25s ease-in-out;
-  box-shadow: none !important;
-  border:0;
-  border-radius: 3px;
-  border-bottom: 4px solid #00585F;
-  width: 250px;
-  height: 20px;
-  outline: none}
+    transition: ease-in-out, .25s ease-in-out;
+    box-shadow: none !important;
+    border:0;
+    border-radius: 3px;
+    border-bottom: 4px solid #00585F;
+    width: 250px;
+    height: 20px;
+    outline: none}
+
+  textarea {
+    border: 0 ;
+    box-shadow: none !important;
+    border-radius: 2px;
+    border-bottom: 2px solid #009393;
+
+    box-sizing: content-box;
+    background-color: white;
+    padding: 5px 5px;
+    margin:10px 0;
+    width: 100px;
+    height: 20px;
+    font-size: 15px;
+    font-family: sans-serif;}
+  textarea:focus {
+    transition: ease-in-out, .25s ease-in-out;
+    box-shadow: none !important;
+    border:0;
+    border-radius: 3px;
+    border-bottom: 4px solid #00585F;
+    width: 500px;
+    height: 300px;
+    outline: none
+  }
 
   select {
     border: 0 ;
@@ -79,7 +105,8 @@ button:hover {
   box-shadow: 0px 0px 10px 1px grey
 }
 
-table {border-collapse: collapse;}
+table {
+  border-collapse: collapse;}
 table, th, td{
   margin:auto;
   border-radius: 5px;border-style: solid;
