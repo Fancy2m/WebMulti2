@@ -1,5 +1,5 @@
 body {
-background-color: red
+background-color: white
   }
 
 .center{
@@ -11,7 +11,7 @@ background-color: red
 
  input{
   /*border: none;*/
- align: center;
+   align: center;
   border: 0 ;
   box-shadow: none !important;
   border-radius: 2px;
@@ -35,7 +35,22 @@ background-color: red
   height: 20px;
   outline: none}
 
-  select:active {
+  select {
+    border: 0 ;
+    box-shadow: none !important;
+    border-radius: 2px;
+    border-bottom: 2px solid #009393;
+
+    box-sizing: content-box;
+    background-color: white;
+    padding: 5px 5px;
+    margin:10px 0;
+    width: 200px;
+    height: 20px;
+    font-size: 20px
+
+  }
+  select:focus {
     transition: ease-in-out, .25s ease-in-out;
     box-shadow: none !important;
     border:0;
@@ -45,7 +60,9 @@ background-color: red
     height: 20px;
     outline: none
   }
-
+  option:focus {
+    border:
+    border-bottom: blue}
 button {
   border: 0 !important;
   box-shadow: none ;
