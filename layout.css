@@ -3,12 +3,7 @@ background-color: white;
 font-family: sans-serif;
   }
 
-.center{
-  display: block;
-  margin: auto;
-  width: 60%;
-  padding: 10px 20px;
-}
+
 
 input{
  /*border: none;*/
