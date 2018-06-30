@@ -10,7 +10,7 @@ if ($_SESSION['login']==1) {
     <!-- </form> -->
       <button onClick="window.location.href="user.php?var=3"">Meine Bewertungen</button>
       <!--<button onClick="window.location.href="user.php?var=4""></button>-->
-      <form action="login.php" method="POST">
+      <form action="loginpage.php" method="POST">
         <button type="submit" name="lgbutton" value="Logout">Ausloggen</button>
       </form>
   </div>';
