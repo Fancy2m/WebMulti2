@@ -109,7 +109,7 @@ elseif($_SESSION["edittoken"]==2)
     {
       echo "<tr>";
       echo "<td><input type='textarea' value=" . $row['film_ID'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['name'] . "></input></td>";
+      echo '<td><textarea name="filmname">'; echo $row['name']; echo '</textarea></td>';
       echo "<td><input type='textarea' value=" . $row['erscheinungsjahr'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
       echo "<td><input type='textarea' value=" . $row['dnachname']. "></input></td>";
