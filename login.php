@@ -32,7 +32,11 @@
 				{
 					if($row->rechte==2)
 					{
+<<<<<<< HEAD
 						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=loginpage.php></body></html>";
+=======
+						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
+>>>>>>> e98305c4b2dbf14a1c69792fc0b04d2ad1850a01
 					}
 					else
 					{
@@ -63,9 +67,12 @@
 		<?php
 			if($_SESSION['login']==1) {
 				echo "Sie sind bereits eingeloggt.";
+<<<<<<< HEAD
 				echo '<form action="loginpage.php" method="POST">
 							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
 							</form>';
+=======
+>>>>>>> e98305c4b2dbf14a1c69792fc0b04d2ad1850a01
 							if ($_SESSION['rechte']==2) {
 								include "adminmenu.php";
 							}
