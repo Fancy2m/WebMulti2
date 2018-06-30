@@ -11,7 +11,7 @@
 			mysqli_set_charset($link,"utf8");
 			$db=mysqli_select_db($link, "webmult");
       $suche=$_POST['search'];
-			$abfrage="select film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film.name like '%$suche%' or director.dnachname like '%$suche%'";
+			$abfrage="select film.film_ID, film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film.name like '%$suche%' or director.dnachname like '%$suche%'";
 			$result=mysqli_query($link,$abfrage);
       echo "<table border='1'>
       <tr>
@@ -36,7 +36,12 @@
         echo "<td><input type='textarea' value=" . $row['fsk'] . "></input></td>";
         echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
         echo "</tr>";
+        $filmid=$row['film_ID'];
+        $_SESSION['id']=$filmid;
       }
+
+
+
       echo "</table>";
 		}
   }
