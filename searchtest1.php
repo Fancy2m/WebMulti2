@@ -16,35 +16,24 @@
       echo "<table border='1'>
       <tr>
       <th>Filmtitel</th>
-      <th>Erscheinungsjahr</th>
       <th>Director Vorname</th>
       <th>Director Nachname</th>
-      <th>Beschreibung</th>
-      <th>Durchschnittsrating</th>
-      <th>Altersfreigabe</th>
       </tr>";
 
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
         echo '<td><a class="search" href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
-        echo "<td>" . $row['erscheinungsjahr'] . "</input></td>";
         echo "<td>" . $row['dvorname'] . "</input></td>";
         echo "<td>" . $row['dnachname'] . "</input></td>";
-        echo "<td>" . $row['beschreibung']. "</input></td>";
-        echo "<td>" . $row['avgrating'] . "</input></td>";
-        echo "<td>" . $row['fsk'] . "</input></td>";
-
+			}
         echo "</tr>";
         $filmid=$row['film_ID'];
         $_SESSION['id']=$filmid;
       }
 
-
-
       echo "</table>";
 		}
-  }
 ?>
 
 <html>
