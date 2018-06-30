@@ -8,8 +8,9 @@
       {
         include "usermenu.php";
         if($wert==1)
-          {
-            // Meine Daten und Statistiken
+          {// Meine Daten und Statistiken
+            echo "Willkommen," .$_SESSION['Nutzervorname'];
+            //So und so viele Beiträge verfasst
           }
 
         elseif ($wert==2)
