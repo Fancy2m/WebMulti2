@@ -42,7 +42,7 @@
     <form action="index.php" method="POST">
     <input type="text" name="search">
     <button type="submit" name="suchen" value="Suchen">Suchen</button>
-.
+
     </form>
   </body>
 </html>
