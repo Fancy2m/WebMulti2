@@ -9,13 +9,22 @@
         include "usermenu.php";
         if($wert==1)
           {// Meine Daten und Statistiken
-            echo "Willkommen," .$_SESSION['Nutzervorname'];
-            //So und so viele Beiträge verfasst
+            if(!$link=mysqli_connect("127.0.0.1","root",""))
+            {
+              echo "Verbindungsaufbau gescheitert.";
+            }
+            else
+            {
+              $result=mysqli_query($link,"SELECT count (rating_ID)  as total from rating WHERE user_rid = '".$_SESSION["UserID"]."'");
+              $data=mysqli_fetch_assoc($result);
+              echo $data['total'];
+            echo "Willkommen," .$_SESSION["Nutzervorname"];
+            echo "Du hast" .$ergebnis. " Ratings geschrieben!";
           }
-
+        }
         elseif ($wert==2)
           {
-            // Meine Daten ändern und Kontozeugs
+
           }
         elseif ($wert==3)
           {
