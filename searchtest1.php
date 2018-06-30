@@ -1,13 +1,3 @@
-<html>
-<link rel="stylesheet" href="layout.css">
-  <body>
-    <form action="index.php" method="POST">
-    <input type="text" name="search">
-    <button type="submit" name="suchen" value="Suchen">Suchen</button>
-.
-    </form>
-  </body>
-</html>
 <?php
 	session_start();
 	if($_POST['suchen'] == "Suchen")
@@ -37,17 +27,28 @@
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
-        echo '<td><p name="filmname">'; echo $row['name']; echo '</textarea></td>';
-				echo "<td><p>" . $row['erscheinungsjahr'] . "</p></td>";
-				echo "<td><p>" . $row['dvorname'] . "</p></td>";
-				echo "<td><p>" . $row['dnachname'] . "</p></td>";
-				echo "<td><p>" . $row['beschreibung']. "</p></td>";
-				echo "<td><p>" . $row['avgrating'] . "</p></td>";
-				echo "<td><p>" . $row['fsk'] . "</p></td>";
-
+        echo '<td><a href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
+        echo "<td><input type='textarea' value=" . $row['erscheinungsjahr'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['beschreibung']. "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['avgrating'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['fsk'] . "></input></td>";
+        echo '<td> <button name="edit"  value="edit" type="submit">Speichern</button> </td>';
         echo "</tr>";
       }
       echo "</table>";
 		}
   }
 ?>
+
+<html>
+<link rel="stylesheet" href="layout.css">
+  <body>
+    <form action="index.php" method="POST">
+    <input type="text" name="search">
+    <button type="submit" name="suchen" value="Suchen">Suchen</button>
+.
+    </form>
+  </body>
+</html>
