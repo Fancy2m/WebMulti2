@@ -18,6 +18,7 @@
 			$row=mysqli_fetch_object($ergebnis);
 			$_SESSION["accname"]=$row->username;
 			$_SESSION["gruppe"]=$row->rechte;
+			$_SESSION["Nutzervorname"]=$row->vorname;
 
 			if($row->passwort==$passwort)
 			{
@@ -31,7 +32,7 @@
 				{
 					if($row->rechte==2)
 					{
-						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=adminpanel.php></body></html>";
+						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=adminpage.php></body></html>";
 					}
 					else
 					{
@@ -49,7 +50,7 @@
 	if($_POST['lgbutton']=="Logout")
 	{
 		session_destroy();
-		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=loginpage.php></body></html>";
+		echo"<html><body><meta  http-equiv=REFRESH CONTENT=1; url=login.php></body></html>";
 	}
 ?>
 
@@ -61,14 +62,13 @@
 	<body>
 		<?php
 			if($_SESSION['login']==1) {
-				include "adminmenu.php";
 				echo "Sie sind bereits eingeloggt.";
-				echo '<form action="loginpage.php" method="POST">
+				echo '<form action="login.php" method="POST">
 							<button type="submit" value="Logout" name="lgbutton" id="logout">Logout</button>
 							</form>';
 			}
 			else{
-				echo '<form action="loginpage.php" method="POST">
+				echo '<form action="login.php" method="POST">
 								<div class="center" >
 									<input type="text" placeholder="Benutzername" name="lname"><br>
 									<input type="password" placeholder="Passwort" name="lpass"><br>
