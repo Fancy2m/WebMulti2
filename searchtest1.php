@@ -11,8 +11,8 @@
 			mysqli_set_charset($link,"utf8");
 			$db=mysqli_select_db($link, "webmult");
       $suche=$POST['search'];
-			$abfrage="select * from film join director on director_id=director_fid where film.name like %'$suche'% or director.dnachname like %'$suche'%;
-			$ergebnis=mysqli_query($link,$abfrage);
+			$abfrage="select * from film join director on director_id=director_fid where film.name like %'$suche'% or director.dnachname like %'$suche'%;"
+			$result=mysqli_query($link,$abfrage);
       echo "<table border='1'>
       <tr>
       <th>Filmtitel</th>
