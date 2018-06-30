@@ -10,8 +10,8 @@
 		{
 			mysqli_set_charset($link,"utf8");
 			$db=mysqli_select_db($link, "webmult");
-      $suche=$POST['search'];
-			$abfrage="select film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film.name like %'$suche'% or director.dnachname like %'$suche'%";
+      $suche=$_POST['search'];
+			$abfrage="select film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film.name like '%$suche%' or director.dnachname like '%$suche%'";
 			$result=mysqli_query($link,$abfrage);
       echo "<table border='1'>
       <tr>
@@ -43,10 +43,11 @@
 ?>
 
 <html>
+<link rel="stylesheet" href="layout.css">
   <body>
     <form action="searchtest1.php" method="POST">
     <input type="text" name="search">
-    <input type="submit" name="suchen" value="Suchen">
+    <button type="submit" name="suchen" value="Suchen">Suchen</button>
 
     </form>
   </body>
