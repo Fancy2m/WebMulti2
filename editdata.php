@@ -93,6 +93,18 @@ if($_SESSION["edittoken"]==1)
       echo $update;
       mysqli_query($link,$drop);
     }
+    if($_POST['activate'] == "activate")
+    {
+      $update="update benutzer set rechte=1 where user_id='".$_POST['id']."'";
+
+      mysqli_query($link,$update);
+    }
+    if($_POST['deactivate'] == "deactivate")
+    {
+      $update="update benutzer set rechte=0 where user_id='".$_POST['id']."'";
+
+      mysqli_query($link,$update);
+    }
 
     mysqli_close($link);
   }
