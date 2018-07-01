@@ -230,7 +230,7 @@ elseif ($_SESSION["edittoken"]==3) {
 
     if($_POST['edit3'] == "edit")
     {
-      $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."'";
+      $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."' WHERE director_id='".$ID."';
       mysqli_query($link,$update);
       echo "<table border='1'>";
       echo "<tr>";
