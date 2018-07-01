@@ -185,7 +185,7 @@ elseif($_SESSION["edittoken"]==2)
 
     if($_POST['edit2'] == "edit")
     {
-      $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', director.dvorname='".$_POST['filmdvname']."', director.dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+      $update="update film, set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', beschreibung='".$_POST['fdescr']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
       mysqli_query($link,$update);
       echo "<tr>";
       echo "<form action='editdata.php' method='POST'>";
