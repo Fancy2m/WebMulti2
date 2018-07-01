@@ -34,7 +34,7 @@ if($_SESSION["edittoken"]==1)
   else
   {
     mysqli_set_charset($link,"utf8");
-    $db=mysqli_select_db($link,"webmult");
+    $db=mysqli_select_db($link,"webmult");//Bearbeitung der Benutzer
     $result = mysqli_query($link,"SELECT * FROM benutzer WHERE user_ID='$ID'");
 
     echo "<table border='1'>
@@ -79,7 +79,7 @@ echo"</form>";
      echo "</tr>";
     }
 
-    if($_POST['edit1'] == "edit")
+    if($_POST['edit1'] == "edit")//Nutzerdaten aktualisieren
     {
       $update="update benutzer set username='".$_POST['username']."', email='".$_POST['email']."', vorname='".$_POST['vname']."', nachname='".$_POST['nname']."', geburtstag='".$_POST['bday']."', gender='".$_POST['gender']."', rechte='".$_POST['rechte']."' where user_id='".$_POST['id']."'";
       mysqli_query($link,$update);
