@@ -130,15 +130,16 @@ button:hover {
 table a{color: black}
 table {
   border:0;
-  border-collapse: collapse;
+  border-collapse: separate;
+
 background-color:#FFFCC4;
 color: black;
 }
 table, th, td{
   margin:auto;
   border-radius: 20px;border-style: solid;
-  border-color:#009393;
-  border: 1px solid #009393;
+  border-color:#FFFCC4;
+  border-bottom: : 1px solid #00585F;
   padding: 5px;
   min-width: fit-content
   height: 5px;

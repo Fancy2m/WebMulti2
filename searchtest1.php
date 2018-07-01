@@ -1,3 +1,13 @@
+<html>
+<link rel="stylesheet" href="layout.css">
+  <body>
+    <form action="index.php" method="POST">
+    <input type="text" name="search">
+    <button type="submit" name="suchen" value="Suchen">Suchen</button>
+
+    </form>
+  </body>
+</html>
 <?php
 	session_start();
 	if($_POST['suchen'] == "Suchen")
@@ -39,14 +49,3 @@
       echo "</table>";
 		}
 ?>
-
-<html>
-<link rel="stylesheet" href="layout.css">
-  <body>
-    <form action="index.php" method="POST">
-    <input type="text" name="search">
-    <button type="submit" name="suchen" value="Suchen">Suchen</button>
-
-    </form>
-  </body>
-</html>

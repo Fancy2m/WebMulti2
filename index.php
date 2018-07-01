@@ -10,6 +10,12 @@ session_start();
 <body>
 
   <h1> <a href="/WebMulti2/index.php">Film DB</a></h1>
+  <div class="menu">
+    <?php
+      include "searchtest1.php";
+
+  ?>
+</div>
   <?php
   switch ($_SESSION['gruppe']) {
       case '1':
@@ -20,15 +26,10 @@ session_start();
         break;
       default:
         echo '
-        <a class="login" href="/webmulti2/loginpage.php">Login</a>
-        <a class="login" href="/webmulti2/registerpage.php">Registrieren</a>';
+        <a class="login" href="/WebMulti2/loginpage.php">Login</a>
+        <a class="login" href="/WebMulti2/registerpage.php">Registrieren</a>';
       break;
   }
   ?>
-  <div class="menu">
-    <?php
-    	include "searchtest1.php";
 
-  ?>
-</div>
 </body>
