@@ -22,7 +22,7 @@ if ($_POST['editrating']=='edit') {
 if ($_SESSION['login']==1) {
   if($_SESSION['gruppe']==2) {
 
-include "adminmenu.php";
+include "index.php";
 session_start();
 $ID = $_GET['var'];
 if($_SESSION["edittoken"]==1)
@@ -51,6 +51,7 @@ if($_SESSION["edittoken"]==1)
     <th>Rechte</th>
     <th>Aktivierung</th>
     <th>Speichern</th>
+    <th>Löschen</th>
     </tr>";
     while($row = mysqli_fetch_array($result))
     {
@@ -74,7 +75,7 @@ if($_SESSION["edittoken"]==1)
         }
 
         echo '<td> <button name="edit1"  value="edit" type="submit">Speichern</button></form> </td>';
-        echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="dropuser"  value="drop" type="submit">loeschen</button> </form> </td>';
+        echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="dropuser"  value="drop" type="submit">Löschen</button> </form> </td>';
 
      echo "</tr>";
     }
@@ -88,10 +89,13 @@ if($_SESSION["edittoken"]==1)
     }
     if($_POST['dropuser'] == "drop")
     {
-      $drop="update benutzer set username='".$_POST['username']."', email='".$_POST['email']."', vorname='".$_POST['vname']."', nachname='".$_POST['nname']."', geburtstag='".$_POST['bday']."', gender='".$_POST['gender']."', rechte='".$_POST['rechte']."' where user_id='".$_POST['id']."'";
+      $delID=$row['user_ID'];
+      $drop="delete from rating where user_rid='.$delID.'";
+      mysqli_query($link,$drop);
+      $drop2="delete from benutzer where user_ID='.$delID.'";
+      mysqli_query($link,$drop2);
       echo $ID;
       echo $update;
-      mysqli_query($link,$drop);
     }
     if($_POST['activate'] == "activate")
     {

@@ -14,7 +14,7 @@ session_start();
   		  }
   		    else
   		      {
-        include "usermenu.php";
+        include "index.php";
         if($wert==1)
             {// Meine Daten und Statistiken
             mysqli_set_charset($link,"utf8");
@@ -55,9 +55,9 @@ session_start();
             {
               echo "<tr>";
               echo "<td>" . $row['name'] . "</td>";
-              echo "<td>" . $row['commnt'] . "></td>";
+              echo "<td>" . $row['commnt'] . "</td>";
               echo "<td>" . $row['wert'] . "</td>";
-              echo "<td>" . $row['datum'] . "></td>";
+              echo "<td>" . $row['datum'] . "</td>";
             }
               echo "</tr>";
               echo "</table>";
