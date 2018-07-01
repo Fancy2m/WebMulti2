@@ -2,7 +2,7 @@
 	session_start();
 	if($_POST['lbutton'] == "Login")
 	{
-		if(!$link=mysqli_connect("127.0.0.1","root",""))
+		if(!$link=mysqli_connect("127.0.0.1","root","")) //Verbindungsabfrage
 		{
 			echo "Verbindungsaufbau gescheitert.";
 		}
@@ -21,17 +21,17 @@
 			$_SESSION["gruppe"]=$row->rechte;
 			$_SESSION["userID"]=$row->user_ID;
 		}
-			if($row->passwort==$passwort)
+			if($row->passwort==$passwort) //Abfrage ob User in der Datenbank ist
 			{
 				$_SESSION["login"]="1";
 
-				if($row->rechte==1)
+				if($row->rechte==1)//Abfrage nach User Rechten
 				{
 					echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
 				}
 				else
 				{
-					if($row->rechte==2)
+					if($row->rechte==2) //Abfrage nach Admin rechten
 					{
 						echo "<html><body><meta http-equiv=REFRESH CONTENT=1;url=index.php></body></html>";
 					}
@@ -59,7 +59,7 @@
 			if($_SESSION['login']==1) {
 				echo "Sie sind bereits eingeloggt.";
 							if ($_SESSION['rechte']==2) {
-								include "adminmenu.php";
+								include "adminmenu.php";//Admin fähigkeiten hinzufügen wenn admin
 							}
 			}
 
