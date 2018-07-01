@@ -1,11 +1,7 @@
 <html>
 <link rel="stylesheet" href="layout.css">
   <body>
-    <form action="index.php" method="POST">
-    <input type="text" name="search">
-    <button type="submit" name="suchen" value="Suchen">Suchen</button>
 
-    </form>
   </body>
 </html>
 <?php
@@ -26,19 +22,19 @@
       echo "<table border='1'>
       <tr>
       <th>Film</th>
-
-      <th>Director</th>
+			<th>Info</th>
       <th>Rating</th>
-
-      </tr>";
+			</tr>";
 
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
         echo '<td><a class="search" href="specificfilmpage.php">'; echo $row['name'];	echo '<br> <img src="' . $row['bild'] . '" alt="error">'; echo '</a></td>';
 
-				echo "<td>" . $row['dvorname']; echo " "; echo $row ['dnachname']; echo "</td>";
-        echo "<td>" . $row['avgrating'] . "</td>";
+				echo "<td>" . $row['dvorname']; echo " ";
+				echo $row ['dnachname'];echo "<br>";
+				echo  $row ['erscheinungsjahr']; echo "</td>";
+        echo "<td>" . $row['avgrating'];  echo "</td>";
 
         $filmid=$row['film_ID'];
 			}
