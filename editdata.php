@@ -113,9 +113,9 @@ echo"</form>";
     }
     if($_POST['dropuser'] == "drop")
     {
-      $drop='delete from rating where user_rid='.$_POST['id'].'';
+      $drop='delete from rating where user_rid='.$row['id'].'';
       mysqli_query($link,$drop);
-      $drop2='delete from benutzer where user_ID='.$_POST['id'].'';
+      $drop2='delete from benutzer where user_ID='.$row['id'].'';
       mysqli_query($link,$drop2);
       echo $ID;
       echo $update;
