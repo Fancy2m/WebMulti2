@@ -12,7 +12,7 @@ if($_POST['create']=="Erstellen")
 		mysqli_set_charset($link,"utf8");
 		$db=mysqli_select_db($link,"webmult");
 		$name=$_POST['name'];
-		$email=$_POST['email'];
+		
 		$abfrage="select name from film where name like '$name' LIMIT 1";
 		$ergebnis=mysqli_query($link,$abfrage);
 		$row=mysqli_fetch_object($ergebnis);
@@ -24,7 +24,7 @@ if($_POST['create']=="Erstellen")
 		}
 		else
 		{
-			$input="insert into film values(null,'".$_POST['name']."','".$_POST['erscheinungsjahr']."','".$_POST['dvorname']."','".$_POST['dnachname']."','".$_POST['fsk']."','".$_POST['beschreibung']."','".$_POST['bild']."')";
+			$input="insert into film values('".$_POST['name']."','".$_POST['erscheinungsjahr']."','".$_POST['dvorname']."','".$_POST['dnachname']."','".$_POST['fsk']."','".$_POST['beschreibung']."','".$_POST['bild']."')";
 			if(!mysqli_query($link,$input))
 			{
 				echo "Fehler, Film konnte nicht hinzugefügt werden!";
