@@ -17,15 +17,14 @@ if($_POST['create']=="Erstellen")
 		$ergebnis=mysqli_query($link,$abfrage);
 		$row=mysqli_fetch_object($ergebnis);
 
-		if($row->$name==$_POST['name'])
+		if($row['name']==$_POST['name'])
 		{
 			echo "Dieser Film wurde bereits registriert!";
 
 		}
 		else
 		{
-				$input="insert into director (director_ID, dvorname, dnachname) values('null','".$_POST['dvorname']."','".$_POST['dnachname']."'";
-			$input="insert into film (film_ID, name, erscheinungsjahr,beschreibung, bild, fsk) values('null','".$_POST['name']."','".$_POST['erscheinungsjahr']."','null''".$_POST['beschreibung']."',null,'".$_POST['bild']."','".$_POST['fsk']."')";
+			$input="insert into director (director_id, dvorname, dnachname) values ('null','".$_POST['dvorname']."','".$_POST['dnachname']."')";
 			if(!mysqli_query($link,$input))
 			{
 				echo "Fehler, Film konnte nicht hinzugefügt werden!";
@@ -33,6 +32,8 @@ if($_POST['create']=="Erstellen")
 			}
 			else
 			{
+					$input="insert into film (film_ID, name, erscheinungsjahr,beschreibung, bild, fsk) values('null','".$_POST['name']."','".$_POST['erscheinungsjahr']."','null''".$_POST['beschreibung']."',null,'".$_POST['bild']."','".$_POST['fsk']."')";
+					mysqli_query($link, $input);
 				echo "Film wurde aufgenommen";
 			}
 		}
