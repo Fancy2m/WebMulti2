@@ -2,7 +2,7 @@
   session_start();
   $id=$_SESSION['id'];
   echo $id;
-  echo "Hallo";
+
 
   $link=mysqli_connect("127.0.0.1","root","");
   mysqli_set_charset($link,"utf8");
@@ -12,13 +12,13 @@
 
   while($row = mysqli_fetch_array($result))
   {
-    echo $row['name'];
-    echo $row['erscheinungsjahr'];
-    echo $row['dvorname'];
-    echo $row['dnachname'];
-    echo $row['beschreibung'];
-    echo $row['avgrating'];
-    echo $row['fsk'];
+    echo $row['name'] . "<br>";
+    echo $row['erscheinungsjahr'] . "<br>";
+    echo $row['dvorname'] ;
+    echo $row['dnachname'] . "<br>";
+    echo $row['beschreibung'] . "<br>";
+    echo $row['avgrating'] . "<br>";
+    echo $row['fsk'] . "<br>";
   }
   if($_POST['doit']=="raten")
   {
@@ -31,6 +31,7 @@
  ?>
 
 <html>
+	<link rel="stylesheet" href="layout.css">
 <body>
   <form method="POST" action="specificfilm.php">
   <div class="slidecontainer">

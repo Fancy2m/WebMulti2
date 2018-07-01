@@ -23,7 +23,7 @@
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
-        echo '<td><a class="search" href="specificfilm.php">'; echo $row['name']; echo '</a></td>';
+        echo '<td><a class="search" href="specificfilmpage.php">'; echo $row['name']; echo '</a></td>';
         echo "<td>" . $row['dvorname'] . "</input></td>";
         echo "<td>" . $row['dnachname'] . "</input></td>";
         $filmid=$row['film_ID'];
