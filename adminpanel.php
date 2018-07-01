@@ -180,7 +180,7 @@
       else {
         echo "Bitte wählen Sie eine Option aus.";
       }
-
+ }
   /*  else {
       echo "Sie haben das Recht dazu!! YOU SHALL NOT PASS!!!!11einself";
     }*/
