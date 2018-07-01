@@ -47,6 +47,6 @@ a.search{
   font-weight: bold;
 
 }
-table, th, td.search{
-  text-align: center;
+.menu {
+  text-align: right;
 }
