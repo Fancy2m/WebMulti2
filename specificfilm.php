@@ -10,7 +10,7 @@
   $abfrage="select film.name, film.bild, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film_ID = '$id'";
   $result=mysqli_query($link,$abfrage);
 
-  while($row = mysqli_fetch_array($result))
+  while($row = mysqli_fetch_array($result)) //ausgabe der Daten über den spezifischen Film
   {
     echo '<div class="name">'; echo $row['name'] . "</div><br>";
     echo '<div class="bild">'; '<img src="' . $row['bild'] . '" alt="error">' . "</div><br>";
@@ -34,7 +34,7 @@
 <html>
 <link rel="stylesheet" href="film.css">
 <body>
-  <form method="POST" action="specificfilmpage.php">
+  <form method="POST" action="specificfilmpage.php"> <!-- Slider für Rating -->
   <div class="slidecontainer">
     <input type="range" min="1" max="10" value="5" class="slider" name="slider" id="myRange">
     <button type="submit" name="doit" value="raten">Rate me</button>

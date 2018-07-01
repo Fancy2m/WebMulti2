@@ -4,13 +4,13 @@
     <?php
 	if($_POST['usuchen'] == "USuchen")
 	{
-		if(!$link=mysqli_connect("127.0.0.1","root",""))
+		if(!$link=mysqli_connect("127.0.0.1","root",""))//Verbindungsabfrage
 		{
 			echo "Verbindungsaufbau gescheitert.";
 		}
 		else
 		{
-			mysqli_set_charset($link,"utf8");
+			mysqli_set_charset($link,"utf8");//Abfrage udn Ausgabe von Suchergebnissen
 			$db=mysqli_select_db($link, "webmult");
       $suche=$_POST['search'];
 			$abfrage=" SELECT * from benutzer where benutzer.username like '%$suche%' or benutzer.nachname like '%$suche%' or benutzer.vorname like '%$suche%'";

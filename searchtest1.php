@@ -7,13 +7,13 @@
 <?php
 	if($_POST['suchen'] == "Suchen")
 	{
-		if(!$link=mysqli_connect("127.0.0.1","root",""))
+		if(!$link=mysqli_connect("127.0.0.1","root",""))//Verbindungsabfrage
 		{
 			echo "Verbindungsaufbau gescheitert.";
 		}
 		else
 		{
-			mysqli_set_charset($link,"utf8");
+			mysqli_set_charset($link,"utf8");//Suche und Ausgabe von Filmen
 			$db=mysqli_select_db($link, "webmult");
       $suche=$_POST['search'];
 			$abfrage="select film.film_ID, film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk, film.bild from film join director on director_id=director_fid where film.name like '%$suche%' or director.dnachname like '%$suche%'";

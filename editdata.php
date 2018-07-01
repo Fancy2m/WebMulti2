@@ -29,7 +29,7 @@ if($_SESSION["edittoken"]==1)
   echo "Hier stehen Userdaten" . $_SESSION["edittoken"];
   if(!$link=mysqli_connect("127.0.0.1","root","", "webmult"))
   {
-    echo "Verbindungsaufbau gescheitert.";
+    echo "Verbindungsaufbau gescheitert.";//Verbindungsabfrage
   }
   else
   {
@@ -348,7 +348,7 @@ elseif ($_SESSION["edittoken"]==3) {
 }
 }
 else {
-  echo "YOU SHALL NOT PASS!!!!";
+  echo "YOU SHALL NOT PASS!!!!";//Ausgabe bei nicht admins
 }
 
 if($_POST['edit2'] == "edit")
