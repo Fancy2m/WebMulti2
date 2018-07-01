@@ -16,7 +16,7 @@ session_start();
 
   </form>
   <?php
-  switch ($_SESSION['gruppe']) {
+  switch ($_SESSION['gruppe']) {//Abfrage nach administratoren Rechten
     case '1':
     include "usermenu.php";
     break;
@@ -32,7 +32,7 @@ session_start();
   ?>
   <div class="menu">
     <?php
-      include "searchtest1.php";
+      include "searchtest1.php";//Filmsuche eingefügt
 
   ?>
   </div>

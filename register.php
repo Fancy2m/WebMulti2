@@ -17,7 +17,7 @@ if($_POST['create']=="Erstellen")
 		$ergebnis=mysqli_query($link,$abfrage);
 		$row=mysqli_fetch_object($ergebnis);
 
-		if($row->username==$_POST['username'])
+		if($row->username==$_POST['username'])//Prüfung auf Doppelung
 		{
 			echo "Dieser Benutzername wurde bereits vergeben!";
 		}
@@ -25,7 +25,7 @@ if($_POST['create']=="Erstellen")
 		elseif ($row->email==$_POST['email']) {
 			echo "Fehler! Diese Email-Adresse wurde bereits registriert.";
 		}
-		else
+		else//Neuen eintrag in dei Datenbank schreiben
 		{
 			$input="insert into benutzer values(null,'".$_POST['username']."','".$_POST['passwort']."','".$_POST['vorname']."','".$_POST['nachname']."','".$_POST['geburtstag']."','".$_POST['gender']."','".$_POST['email']."',0)";
 			if(!mysqli_query($link,$input))

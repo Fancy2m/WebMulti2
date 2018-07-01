@@ -8,7 +8,7 @@
     if($_SESSION['login']==1)
     {    $wert = $_GET['var'];
 
-      if($wert==1)
+      if($wert==1)//Zuweisung auf Userdaten
       {
         include "usersearch.php";
         echo 'Hier stehen Userdaten'. $wert;
@@ -16,7 +16,7 @@
       	{
       		echo "Verbindungsaufbau gescheitert.";
       	}
-      	else
+      	else//Bearbeitungsmaske der der Nutzer
       	{
           mysqli_set_charset($link,"utf8");
       		$db=mysqli_select_db($link,"webmult");
@@ -60,7 +60,7 @@
         }
       }
 
-      elseif ($wert==2) {
+      elseif ($wert==2) {//Zuweisung auf Filmdaten
         echo "Hier stehen Filmdaten $wert";
         if(!$link=mysqli_connect("127.0.0.1","root",""))
       	{
@@ -97,7 +97,7 @@
 
           mysqli_close($link);
         }
-        elseif ($wert==3) {
+        elseif ($wert==3) {//Zuweisung auf Regisseure
           echo "Hier stehen Directoren. $wert";
           if(!$link=mysqli_connect("127.0.0.1","root",""))
         	{
@@ -132,7 +132,7 @@
             mysqli_close($link);
           }
 
-          elseif ($wert==4) {
+          elseif ($wert==4) {//Zuweisung zu kommentare und Ratings
             echo "Hier stehen Ratings $wert";
             if(!$link=mysqli_connect("127.0.0.1","root",""))
           	{
