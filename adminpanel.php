@@ -4,8 +4,12 @@
     <?php
     session_start();
     if($_SESSION['login']==1)
+<<<<<<< HEAD
     {  include "index.php";
 
+=======
+    {  include "adminmenu.php";
+>>>>>>> 3d681db26b888dd876eb46a7828fafbc408b5677
       $wert = $_GET['var'];
       $i = 1;
 
