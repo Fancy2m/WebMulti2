@@ -6,7 +6,7 @@
 
 <?php
 	session_start();
-	if($_POST['suchen'] == "Suchen")
+	if($_POST['usuchen'] == "USuchen")
 	{
 		if(!$link=mysqli_connect("127.0.0.1","root",""))
 		{
