@@ -2,8 +2,7 @@
 <link rel="stylesheet" href="layout.css">
   <body>
 
-  </body>
-</html>
+
 
 <?php
 	session_start();
@@ -27,7 +26,7 @@
       <th>Passwort</th>
       <th>Vorname</th>
       <th>Nachname</th>
-        <th>Geburtstag</th>
+      <th>Geburtstag</th>
       <th>Geschlecht</th>
       <th>E-Mail</th>
       <th>Rechte</th>
@@ -53,3 +52,6 @@
 		}
   }
 ?>
+
+</body>
+</html>
