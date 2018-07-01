@@ -29,11 +29,40 @@ session_start();
           }
 
         elseif ($wert==2)
+        {
+          // Meine Bewertungen ansehen und bearbeiten
+          mysqli_set_charset($link,"utf8");
+          $db=mysqli_select_db($link,"webmult");
+        //  $abfrage="SELECT rating_ID FROM rating WHERE user_rid='1'" or die(mysqli_error($db));
+        $abfrage="SELECT username, passwort, vorname, nachname, geburtstag, gender, email FROM benutzer WHERE benutzer.user_ID ='".$_SESSION['userID']."'";
+          $result=mysqli_query($link,$abfrage);
+          echo "Hier sind deine Kontodaten,"; echo $_SESSION['nutzervorname'] ."</br>";
+          echo "<table border='1'>
+          <tr>
+          <th>Benutzername</th>
+          <th>Passwort</th>
+          <th>Vorname</th>
+          <th>Nachname</th>
+          <th>Geburtstag</th>
+          <th>Geschlecht</th>
+          <th>E-Mail</th>
+          </tr>";
+          while($row = mysqli_fetch_array($result))
           {
-            // Meine Daten ändern und Kontozeugs
+            echo "<tr>";
+            echo "<td>" . $row['username'] . "</td>";
+            echo "<td>" . $row['passwort'] . "</td>";
+            echo "<td>" . $row['vorname'] . "</td>";
+            echo "<td>" . $row['nachname'] . "</td>";
+            echo "<td>" . $row['geburtstag'] . "</td>";
+            echo "<td>" . $row['gender'] . "</td>";
+            echo "<td>" . $row['email'] . "</td>";
+          }
+            echo "</tr>";
+            echo "</table>";
 
 
-}
+        }
 
         elseif ($wert==3)
           {
