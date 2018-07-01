@@ -11,31 +11,28 @@ if($_POST['create']=="Erstellen")
 	{
 		mysqli_set_charset($link,"utf8");
 		$db=mysqli_select_db($link,"webmult");
-		$username=$_POST['username'];
+		$name=$_POST['name'];
 		$email=$_POST['email'];
-		$abfrage="select username from benutzer where username like '$username' LIMIT 1";
+		$abfrage="select name from film where name like '$name' LIMIT 1";
 		$ergebnis=mysqli_query($link,$abfrage);
 		$row=mysqli_fetch_object($ergebnis);
 
-		if($row->username==$_POST['username'])
+		if($row->name==$_POST['name'])
 		{
-			echo "Dieser Benutzername wurde bereits vergeben!";
-		}
+			echo "Dieser Film wurde bereits registriert!";
 
-		elseif ($row->email==$_POST['email']) {
-			echo "Fehler! Diese Email-Adresse wurde bereits registriert.";
 		}
 		else
 		{
-			$input="insert into benutzer values(null,'".$_POST['username']."','".$_POST['passwort']."','".$_POST['vorname']."','".$_POST['nachname']."','".$_POST['geburtstag']."','".$_POST['gender']."','".$_POST['email']."',0)";
+			$input="insert into film values(null,'".$_POST['name']."','".$_POST['erscheinungsjahr']."','".$_POST['dvorname']."','".$_POST['dnachname']."','".$_POST['fsk']."','".$_POST['beschreibung']."','".$_POST['bild']."')";
 			if(!mysqli_query($link,$input))
 			{
-				echo "Fehler, Person konnte nicht hinzugefügt werden!";
+				echo "Fehler, Film konnte nicht hinzugefügt werden!";
 				echo $input;
 			}
 			else
 			{
-				echo "Sie wurden erfolgreich registriert! Ein Admin muss ihren Account noch aktivieren.";
+				echo "Film wurde aufgenommen";
 			}
 		}
 		mysqli_close($link);
@@ -57,20 +54,16 @@ else
 <link rel="stylesheet" href="layout.css">
   <nav>
   </nav>
-    <form action="register.php" method="POST">
-    <h2>Registrierung</h2>
+    <form action="newmovie.php" method="POST">
+    <h2>Film hinzufügen</h2>
 		<div class="center" >
-    <input type="text" placeholder="Benutzername" name="username"class="inputfield" ></input><br>
-    <input type="password" placeholder="Passwort" name="passwort" class="inputfield"></input><br>
-    <input type="text" placeholder="Vorname" name="vorname" class="inputfield"></input><br>
-    <input type="text" placeholder="Nachname" name="nachname" class="inputfield"></input><br>
-    <input type="text" placeholder="JJJJ-MM-TT" name="geburtstag" class="inputfield"></input><br>
-		<select name="gender" class="dropdown" style=">
-			<option value="">Auswählen...</option>
-			<option value="M">Männlich</option>
-			<option value="W">Weiblich</option>
-		</select><br>
-    <input type="Email" placeholder="Email-Adresse" name="email" class="inputfield"></input><br>
+    <input type="text" placeholder="Name" name="name"class="inputfield" ></input><br>
+    <input type="text" placeholder="Erscheinungsjahr" name="erscheinungsjahr" class="inputfield"></input><br>
+    <input type="text" placeholder="Vorname" name="dvorname" class="inputfield"></input><br>
+    <input type="text" placeholder="Nachname" name="dnachname" class="inputfield"></input><br>
+		<input type="text" placeholder="beschreibung" name="beschreibung" class="inputfield"></input><br>
+    <input type="text" placeholder="FSK" name="fsk" class="inputfield"></input><br>
+    <input type="text" placeholder="bild" name="bild" class="inputfield"></input><br>
     <button type="submit" name="create" value="Erstellen">Erstellen</button>
 	</div>
 	</form>
