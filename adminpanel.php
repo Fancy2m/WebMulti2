@@ -85,7 +85,6 @@
             echo "<td>" . $row['name'] . "</td>";
             echo "<td>" . $row['dvorname']; echo '&nbsp'; echo $row['dnachname'] . "</td>";
             echo "<td>" . $row['avgrating'] . "</td>" ;
-            echo '<td> <img src="' . $row['bild'] . '" alt="error"></td>';
             echo '<td> <img src="' . $row['bild'] . '" alt="error", width="240px"; height="160px"></td>';
             echo '<td><form action="editdata.php?var='.$row["film_ID"].'" method="POST"> <button name="editfilm"  value="edit" type="submit">bearbeiten</button> </form> </td>';
             }
