@@ -1,0 +1,19 @@
+.specificfilm {
+  color:red
+}
+.name {
+  font-size: 30px;
+  margin-left:5%}
+.info {
+  font-size: 20px;
+  color: yellow;
+  margin-left: 5%
+}
+.desc{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.slidecontainer {
+  margin-left: 10%;
+  text-align: center;
+}

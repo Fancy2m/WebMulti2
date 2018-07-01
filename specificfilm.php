@@ -7,18 +7,19 @@
   $link=mysqli_connect("127.0.0.1","root","");
   mysqli_set_charset($link,"utf8");
   $db=mysqli_select_db($link, "webmult");
-  $abfrage="select film.name, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film_ID = '$id'";
+  $abfrage="select film.name, film.bild, film.erscheinungsjahr, director.dvorname, director.dnachname, film.beschreibung, film.avgrating, film.fsk from film join director on director_id=director_fid where film_ID = '$id'";
   $result=mysqli_query($link,$abfrage);
 
   while($row = mysqli_fetch_array($result))
   {
-    echo $row['name'] . "<br>";
-    echo $row['erscheinungsjahr'] . "<br>";
-    echo $row['dvorname'] ;
-    echo $row['dnachname'] . "<br>";
-    echo $row['beschreibung'] . "<br>";
-    echo $row['avgrating'] . "<br>";
-    echo $row['fsk'] . "<br>";
+    echo '<div class="name">'; echo $row['name'] . "</div><br>";
+    echo '<div class="bild">'; '<img src="' . $row['bild'] . '" alt="error">' . "</div><br>";
+    echo '<div class="info">';echo $row['erscheinungsjahr'] . ", </div>";
+    echo '<div class="info">';echo $row['dvorname'] ; echo " ";
+    echo $row['dnachname'] . ", </div>";
+    echo '<div class="info">';echo $row['fsk'] . "</div><br>";
+    echo '<div class="desc">';echo $row['beschreibung'] . "</div><br>";
+    echo '<div class="info">Rating: ';echo $row['avgrating'] . "</div><br>";
   }
   if($_POST['doit']=="raten")
   {
@@ -31,7 +32,7 @@
  ?>
 
 <html>
-	<link rel="stylesheet" href="layout.css">
+<link rel="stylesheet" href="film.css">
 <body>
   <form method="POST" action="specificfilm.php">
   <div class="slidecontainer">
