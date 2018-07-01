@@ -25,6 +25,7 @@ session_start();
             $row = mysqli_fetch_assoc($ergebnis);
             echo "Willkommen,"; echo $_SESSION['nutzervorname'] ."</br>";
             echo "Du hast bereits". $row['COUNT(*)'] . "Ratings geschrieben!";
+            echo "Das sind deine Daten:";
             //So und so viele Beiträge verfasst
           }
 
@@ -40,7 +41,6 @@ session_start();
           echo "<table border='1'>
           <tr>
           <th>Benutzername</th>
-          <th>Passwort</th>
           <th>Vorname</th>
           <th>Nachname</th>
           <th>Geburtstag</th>
@@ -51,7 +51,6 @@ session_start();
           {
             echo "<tr>";
             echo "<td>" . $row['username'] . "</td>";
-            echo "<td>" . $row['passwort'] . "</td>";
             echo "<td>" . $row['vorname'] . "</td>";
             echo "<td>" . $row['nachname'] . "</td>";
             echo "<td>" . $row['geburtstag'] . "</td>";
