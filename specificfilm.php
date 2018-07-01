@@ -34,7 +34,7 @@
 <html>
 <link rel="stylesheet" href="film.css">
 <body>
-  <form method="POST" action="specificfilm.php">
+  <form method="POST" action="specificfilmpage.php">
   <div class="slidecontainer">
     <input type="range" min="1" max="10" value="5" class="slider" name="slider" id="myRange">
     <button type="submit" name="doit" value="raten">Rate me</button>
