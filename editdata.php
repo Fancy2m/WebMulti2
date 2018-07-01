@@ -27,7 +27,7 @@ $ID = $_GET['var'];
 if($_SESSION["edittoken"]==1)
 {
   echo "Hier stehen Userdaten" . $_SESSION["edittoken"];
-  if(!$link=mysqli_connect("127.0.0.1","root",""))
+  if(!$link=mysqli_connect("127.0.0.1","root","", "webmult"))
   {
     echo "Verbindungsaufbau gescheitert.";
   }
@@ -313,7 +313,7 @@ elseif ($_SESSION["edittoken"]==3) {
 
       if($_POST['droprating'] == "drop")
       {
-        $drop="DELETE from rating where rating_ID='.$ID.'";
+        $drop="DELETE from rating where rating_ID='".$ID."'";
         mysqli_query($link,$drop);
         echo $ID;
         echo $update;
