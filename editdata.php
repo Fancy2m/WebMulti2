@@ -146,7 +146,7 @@ elseif($_SESSION["edittoken"]==2)
   }
   else
   {
-    mysqli_set_charset($link,"utf8");
+    mysqli_set_charset($link,"utf8");//bearbeiung der Fime
     $db=mysqli_select_db($link,"webmult");
     $result = mysqli_query($link,"SELECT * FROM film, director WHERE director.director_ID LIKE film.director_fid AND film.film_ID='$ID'");
 
@@ -184,7 +184,7 @@ elseif($_SESSION["edittoken"]==2)
 
 
     if($_POST['edit2'] == "edit")
-    {
+    {//aktualisieren der Filme
       $update="update film, set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', beschreibung='".$_POST['fdescr']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
       mysqli_query($link,$update);
       echo "<tr>";
@@ -226,7 +226,7 @@ elseif ($_SESSION["edittoken"]==3) {
   else
   {
     mysqli_set_charset($link,"utf8");
-    $db=mysqli_select_db($link,"webmult");
+    $db=mysqli_select_db($link,"webmult");//Director bearbeiten
     $result = mysqli_query($link,"SELECT * FROM director WHERE director_id='$ID'");
 
     echo "<table border='1'>
@@ -251,7 +251,7 @@ elseif ($_SESSION["edittoken"]==3) {
       echo "</tr>";
     }
 
-    if($_POST['edit3'] == "edit")
+    if($_POST['edit3'] == "edit")//Speichern der neuen director daten
     {
       $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."' WHERE director_id='".$_POST['did']."'";
       mysqli_query($link,$update);
