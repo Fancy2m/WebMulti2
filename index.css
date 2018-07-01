@@ -45,4 +45,8 @@ a:hover.login  {
 }
 a.search{
   font-weight: bold;
+
+}
+table, th, td.search{
+  text-align: center;
 }
