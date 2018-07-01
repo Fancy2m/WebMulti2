@@ -24,8 +24,8 @@ if($_POST['create']=="Erstellen")
 		}
 		else
 		{
-				$input="insert into director values(null,'".$_POST['dvorname']."','".$_POST['dnachname']."'";
-			$input="insert into film values(null,'".$_POST['name']."','".$_POST['erscheinungsjahr']."',null'".$_POST['beschreibung']."',null,'".$_POST['bild']."','".$_POST['fsk']."')";
+				$input="insert into director (director_ID, dvorname, dnachname) values('null','".$_POST['dvorname']."','".$_POST['dnachname']."'";
+			$input="insert into film (film_ID, name, erscheinungsjahr,beschreibung, bild, fsk) values('null','".$_POST['name']."','".$_POST['erscheinungsjahr']."','null''".$_POST['beschreibung']."',null,'".$_POST['bild']."','".$_POST['fsk']."')";
 			if(!mysqli_query($link,$input))
 			{
 				echo "Fehler, Film konnte nicht hinzugefügt werden!";
