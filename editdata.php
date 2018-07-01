@@ -23,12 +23,11 @@ if ($_SESSION['login']==1) {
   if($_SESSION['gruppe']==2) {
 
 include "index.php";
-session_start();
 $ID = $_GET['var'];
 if($_SESSION["edittoken"]==1)
 {
   echo "Hier stehen Userdaten" . $_SESSION["edittoken"];
-  if(!$link=mysqli_connect("127.0.0.1","root",""))
+  if(!$link=mysqli_connect("127.0.0.1","root","", "webmult"))
   {
     echo "Verbindungsaufbau gescheitert.";
   }
@@ -138,6 +137,7 @@ elseif($_SESSION["edittoken"]==2)
     <th>Durchschnittsrating</th>
     <th>Altersfreigabe</th>
     <th>Speichern</th>
+    <th>Löschen</th>
     </tr>";
     while($row = mysqli_fetch_array($result))
     {
@@ -153,6 +153,7 @@ elseif($_SESSION["edittoken"]==2)
       echo "<td><input name='ffsk' value=" . $row['fsk'] . "></input></td>";
       echo '<td> <button name="edit2" value="edit" type="submit" >Speichern</button> </td>';
       echo "</form>";
+      echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="dropfilm"  value="drop" type="submit">Löschen</button> </form> </td>';
       echo "</tr>";
       echo "</table>";
     }
@@ -173,9 +174,20 @@ elseif($_SESSION["edittoken"]==2)
       echo "<td><input name='frating' value=" . $_POST['frating'] . "></input></td>";
       echo "<td><input name='ffsk' value=" . $_POST['ffsk'] . "></input></td>";
       echo '<td> <button name="edit2" value="edit" type="submit" >Speichern</button> </td>';
+      echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="dropfilm"  value="drop" type="submit">Löschen</button> </form> </td>';
       echo "</form>";
       echo "</tr>";
       echo "</table>";
+    }
+
+    if($_POST['dropfilm'] == "drop")
+    {
+      $drop="delete from rating where film_rid='.$ID.'";
+      mysqli_query($link,$drop);
+      $drop2="delete from film where film_ID='.$ID.'";
+      mysqli_query($link,$drop2);
+      echo $ID;
+      echo $update;
     }
     mysqli_close($link);
   }
@@ -199,21 +211,45 @@ elseif ($_SESSION["edittoken"]==3) {
     <th>Vorname</th>
     <th>Nachname</th>
     <th>Bearbeiten</th>
+    <th>Löschen</th>
     </tr>";
 
 
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input type='textarea' value=" . $row['director_id'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
-      echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
-    }
+      echo "<td><input name='did' value=" . $row['director_id'] . "></input></td>";
+      echo "<td><input name='dvn' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input name='dnn' value=" . $row['dnachname'] . "></input></td>";
+      echo '<td><button name="edit3"  value="edit" type="submit">Speichern</button> </td>';
+      echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="dropdirector"  value="drop" type="submit">Löschen</button> </form> </td>';
+      }
       echo "</tr>";
     }
     echo "</table>";
 
+    if($_POST['edit3'] == "edit")
+    {
+      $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."'";
+      mysqli_query($link,$update);
+      echo "<table border='1'>";
+      echo "<tr>";
+      echo "<td><input type='textarea' value=" . $row['director_id'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
+      echo '<td><button name="edit3"  value="edit" type="submit">Speichern</button> </td>';
+      echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="dropdirector"  value="drop" type="submit">Löschen</button> </form> </td>';
+      echo "</tr>";
+      echo "</table>";
+    }
+
+    if($_POST['dropdirector'] == "drop")
+    {
+      $drop="delete from director where director_id='.$ID.'";
+      mysqli_query($link,$drop);
+      echo $ID;
+      echo $update;
+    }
     mysqli_close($link);
   }
 
@@ -240,21 +276,48 @@ elseif ($_SESSION["edittoken"]==3) {
       <th>Wertung</th>
       <th>Kommentar</th>
       <th>Bearbeiten</th>
+      <th>Löschen</th>
       </tr>";
 
       while($row = mysqli_fetch_array($result))
       {
         echo "<tr>";
-        echo "<td><input type='textarea' value=" . $row['rating_ID'] . "></input></td>";
+        echo "<td><input name='rid' value=" . $row['rating_ID'] . "></input></td>";
         echo '<td><textarea name="filmname">'; echo $row['name']; echo '</textarea></td>';
-        echo "<td><input type='textarea' value=" . $row['username'] . "></input></td>";
-        echo "<td><input type='textarea' value=" . $row['wert'] . "></input></td>";
-        echo "<td><textarea class='filmdescr' name='comment'>"; echo $row['commnt']; echo "</textarea></td>";
-        echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
+        echo "<td><input name='ruser' value=" . $row['username'] . "></input></td>";
+        echo "<td><input name='rwert' value=" . $row['wert'] . "></input></td>";
+        echo "<td><textarea class='filmdescr' name='rcomment'>"; echo $row['commnt']; echo "</textarea></td>";
+        echo '<td><button name="edit4"  value="edit" type="submit">Speichern</button> </td>';
+        echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="droprating"  value="drop" type="submit">Löschen</button> </form> </td>';
+
       }
         echo "</tr>";
       }
       echo "</table>";
+
+      if($_POST['edit4'] == "edit")
+      {
+        $update="UPDATE rating SET wert='".$_POST['rwert']."', commnt='".$_POST['rcomment']."' where rating_ID='".$_POST['rid']."'";
+        mysqli_query($link,$update);
+        echo "<tr>";
+        echo "<td><input name='rid' value=" . $row['rating_ID'] . "></input></td>";
+        echo '<td><textarea name="filmname">'; echo $row['name']; echo '</textarea></td>';
+        echo "<td><input name='ruser' value=" . $row['username'] . "></input></td>";
+        echo "<td><input name='rwert' value=" . $row['wert'] . "></input></td>";
+        echo "<td><textarea class='filmdescr' name='rcomment'>"; echo $row['commnt']; echo "</textarea></td>";
+        echo '<td><button name="edit4"  value="edit" type="submit">Speichern</button> </td>';
+        echo '<td><form action="editdata.php?var="'.$ID.'" method="POST"> <button name="droprating"  value="drop" type="submit">Löschen</button> </form> </td>';
+        echo '</tr>';
+        echo'</table>';
+      }
+
+      if($_POST['droprating'] == "drop")
+      {
+        $drop="DELETE from rating where rating_ID='".$ID."'";
+        mysqli_query($link,$drop);
+        echo $ID;
+        echo $update;
+      }
 
       mysqli_close($link);
     }
