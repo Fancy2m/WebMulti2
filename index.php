@@ -9,7 +9,7 @@ session_start();
 </head>
 <body>
 
-  <h1> <a href="/webmulti2/index.php">Film DB</a></h1>
+  <h1> <a href="/WebMulti2/index.php">Film DB</a></h1>
   <?php
   switch ($_SESSION['gruppe']) {
       case '1':
