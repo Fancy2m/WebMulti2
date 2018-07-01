@@ -25,21 +25,21 @@
 			<th>Info</th>
       <th>Rating</th>
 			</tr>";
-
+      $i=1;
       while($row = mysqli_fetch_array($result))
       {
+
         echo "<tr>";
-        echo '<td><a class="search" href="specificfilmpage.php">'; echo $row['name'];	echo '<br> <img src="' . $row['bild'] . '" alt="error">'; echo '</a></td>';
+        echo '<td><a class="search" href="specificfilmpage.php?var='.$i.'">'; echo $row['name'];	echo '<br> <img src="' . $row['bild'] . '" alt="error">'; echo '</a></td>';
 
 				echo "<td>" . $row['dvorname']; echo " ";
 				echo $row ['dnachname'];echo "<br>";
 				echo  $row ['erscheinungsjahr']; echo "</td>";
         echo "<td>" . $row['avgrating'];  echo "</td>";
-
-        $filmid=$row['film_ID'];
-			}
+        $i++;
+        }
         echo "</tr>";
-        $_SESSION['id']=$filmid;
+
       }
 
       echo "</table>";

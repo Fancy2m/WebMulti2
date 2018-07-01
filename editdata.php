@@ -89,7 +89,7 @@ if($_SESSION["edittoken"]==1)
     if($_POST['dropuser'] == "drop")
     {
       $delID=$row['user_ID'];
-      $drop="delete from rating where user_rid='.$delID.'";
+      $drop="delete from rating where user_rid='.$delID.'" or die(mysqli_error($db));
       mysqli_query($link,$drop);
       $drop2="delete from benutzer where user_ID='.$delID.'";
       mysqli_query($link,$drop2);
@@ -230,7 +230,7 @@ elseif ($_SESSION["edittoken"]==3) {
 
     if($_POST['edit3'] == "edit")
     {
-      $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."' WHERE director_id='".$ID."';
+      $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."' WHERE director_id='".$ID."'";
       mysqli_query($link,$update);
       echo "<table border='1'>";
       echo "<tr>";
