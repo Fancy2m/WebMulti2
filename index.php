@@ -9,7 +9,7 @@ session_start();
 </head>
 <body>
 
-  <h1> <a href="/WebMulti2/index.php">Film DB</a></h1>
+  <h1> <a href="/WebMulti2/index.php">FilmBase</a></h1>
   <form class="menu" action="index.php" method="POST">
   <input type="text" name="search">
   <button type="submit" name="suchen" value="Suchen">Suchen</button>
