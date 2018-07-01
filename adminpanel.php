@@ -6,7 +6,6 @@
     if($_SESSION['login']==1)
     {  include "adminmenu.php";
       $wert = $_GET['var'];
-      $i = 1;
 
       if($wert==1)
       {
@@ -48,9 +47,8 @@
               {
               echo '<td><form action="editdata.php" method="POST"><button type="submit" name="deactivate" value="deactivate">Ja</button></form></td>';
               }
-           echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
+           echo '<td><form action="editdata.php?var='.$row['user_ID'].'" method="POST"> <button name="edituser"  value="edit" type="submit">bearbeiten</button> </form> </td>';
            echo "</tr>";
-           $i++;
           }
           echo "</table>";
 
@@ -88,8 +86,7 @@
             echo "<td>" . $row['dvorname']; echo '&nbsp'; echo $row['dnachname'] . "</td>";
             echo "<td>" . $row['avgrating'] . "</td>" ;
             echo '<td> <img src="' . $row['bild'] . '" alt="error", width="240px"; height="160px"></td>';
-            echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="editfilm"  value="edit" type="submit" >bearbeiten</button> </form> </td>';
-            $i++;
+            echo '<td><form action="editdata.php?var='.$row["film_ID"].'" method="POST"> <button name="editfilm"  value="edit" type="submit">bearbeiten</button> </form> </td>';
             }
             echo "</tr>";
           }
@@ -123,9 +120,8 @@
               echo "<td>" . $row['director_id'] . "</td>";
               echo "<td>" . $row['dvorname'] . "</td>";
               echo "<td>" . $row['dnachname'] . "</td>";
-              echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="editdirector" value="edit" type="submit">bearbeiten</button> </form> </td>';
-              $i++;
-            }
+              echo '<td><form action="editdata.php?var='.$row['director_id'].'" method="POST"> <button name="editdirector" value="edit" type="submit">bearbeiten</button> </form> </td>';
+              }
               echo "</tr>";
             }
             echo "</table>";
@@ -167,8 +163,7 @@
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['wert'] . "</td>" ;
                 echo '<td>' . $row['commnt'] . '</td>';
-                echo '<td><form action="editdata.php?var='.$i.'" method="POST"> <button name="editrating"  value="edit" type="submit">bearbeiten</button> </form> </td>';
-                $i++;
+                echo '<td><form action="editdata.php?var='.$row['rating_ID'].'" method="POST"> <button name="editrating"  value="edit" type="submit">bearbeiten</button> </form> </td>';
                 }
                 echo "</tr>";
               }
