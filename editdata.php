@@ -23,7 +23,6 @@ if ($_SESSION['login']==1) {
   if($_SESSION['gruppe']==2) {
 
 include "index.php";
-session_start();
 $ID = $_GET['var'];
 if($_SESSION["edittoken"]==1)
 {
@@ -205,14 +204,26 @@ elseif ($_SESSION["edittoken"]==3) {
     while($row = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td><input type='textarea' value=" . $row['director_id'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
-      echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
-      echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
+      echo "<td><input name='did' value=" . $row['director_id'] . "></input></td>";
+      echo "<td><input name='dvn' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input name='dnn' value=" . $row['dnachname'] . "></input></td>";
+      echo '<td><button name="edit3"  value="edit" type="submit">Speichern</button> </td>';
     }
       echo "</tr>";
     }
     echo "</table>";
+
+    if($_POST['edit3'] == "edit")
+    {
+      $update="update director set dvorname='".$_POST['dvn']."', dnachname='".$_POST['dnn']."'";
+      mysqli_query($link,$update);
+      echo "<tr>";
+      echo "<td><input type='textarea' value=" . $row['director_id'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dvorname'] . "></input></td>";
+      echo "<td><input type='textarea' value=" . $row['dnachname'] . "></input></td>";
+      echo '<td><button name="edit3"  value="edit" type="submit">Speichern</button> </td>';
+      echo "</table>";
+    }
 
     mysqli_close($link);
   }
@@ -250,11 +261,26 @@ elseif ($_SESSION["edittoken"]==3) {
         echo "<td><input type='textarea' value=" . $row['username'] . "></input></td>";
         echo "<td><input type='textarea' value=" . $row['wert'] . "></input></td>";
         echo "<td><textarea class='filmdescr' name='comment'>"; echo $row['commnt']; echo "</textarea></td>";
-        echo '<td><button name="edit"  value="edit" type="submit">Speichern</button> </td>';
+        echo '<td><button name="edit4"  value="edit" type="submit">Speichern</button> </td>';
       }
         echo "</tr>";
       }
       echo "</table>";
+
+      if($_POST['edit4'] == "edit")
+      {
+        $update="update film, director set name='".$_POST['filmname']."', erscheinungsjahr='".$_POST['fjahr']."', director.dvorname='".$_POST['filmdvname']."', director.dnachname='".$_POST['filmdnachn']."', beschreibung='".$_POST['fdescr']."', avgrating='".$_POST['frating']."', fsk='".$_POST['ffsk']."' where film_ID='".$_POST['filmid']."'";
+        mysqli_query($link,$update);
+        echo "<tr>";
+        echo "<td><input type='textarea' value=" . $row['rating_ID'] . "></input></td>";
+        echo '<td><textarea name="filmname">'; echo $row['name']; echo '</textarea></td>';
+        echo "<td><input type='textarea' value=" . $row['username'] . "></input></td>";
+        echo "<td><input type='textarea' value=" . $row['wert'] . "></input></td>";
+        echo "<td><textarea class='filmdescr' name='comment'>"; echo $row['commnt']; echo "</textarea></td>";
+        echo '<td><button name="edit4"  value="edit" type="submit">Speichern</button> </td>';
+        echo "</tr>";
+      }
+
 
       mysqli_close($link);
     }
