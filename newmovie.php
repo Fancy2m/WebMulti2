@@ -24,6 +24,8 @@ if($_POST['create']=="Erstellen")
 		}
 		else
 		{
+			$input='SELECT * FROM director WHERE dvorname='".$POST'[dvorname]."' AND dnachname ='".$_POST['dnachname']"'. ORDER BY director_id';
+			
 			$input="insert into director (director_id, dvorname, dnachname) values ('null','".$_POST['dvorname']."','".$_POST['dnachname']."')";
 			if(!mysqli_query($link,$input))
 			{

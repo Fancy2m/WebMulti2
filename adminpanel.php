@@ -1,25 +1,29 @@
 <html>
 <link rel="stylesheet" href="layout.css">
   <body>
+
     <?php
+    include "index.php";
     session_start();
     if($_SESSION['login']==1)
-    {  include "index.php";
-      $wert = $_GET['var'];
+    {    $wert = $_GET['var'];
 
       if($wert==1)
       {
-        echo "Hier stehen Userdaten $wert";
+        include "usersearch.php";
+        echo 'Hier stehen Userdaten'. $wert;
         if(!$link=mysqli_connect("127.0.0.1","root",""))
       	{
       		echo "Verbindungsaufbau gescheitert.";
       	}
       	else
       	{
-      		mysqli_set_charset($link,"utf8");
+          mysqli_set_charset($link,"utf8");
       		$db=mysqli_select_db($link,"webmult");
           $result = mysqli_query($link,"SELECT * FROM benutzer");
-
+          echo '<form class="menu" action="adminpanel.php?var=1" method="POST">
+          <input type="text" name="search">
+          <button type="submit" name="usuchen" value="USuchen">Suchen</button>';
           echo "<table border='1'>
           <tr>
           <th>Nutzer-ID</th>
