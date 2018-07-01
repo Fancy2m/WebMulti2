@@ -22,7 +22,7 @@ if ($_POST['editrating']=='edit') {
 if ($_SESSION['login']==1) {
   if($_SESSION['gruppe']==2) {
 
-include "adminmenu.php";
+include "index.php";
 session_start();
 $ID = $_GET['var'];
 if($_SESSION["edittoken"]==1)

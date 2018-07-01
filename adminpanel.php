@@ -4,7 +4,7 @@
     <?php
     session_start();
     if($_SESSION['login']==1)
-    {  include "adminmenu.php";
+    {  include "index.php";
       $wert = $_GET['var'];
 
       if($wert==1)
