@@ -84,11 +84,6 @@ session_start();
               echo "</table>";
               echo $update;
             }
-
-
-
-
-
         }
 
         elseif ($wert==3)
