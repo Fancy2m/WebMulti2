@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $kontrollvariable = 0;
 if($_POST['create']=="Erstellen")
 {

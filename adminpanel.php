@@ -3,7 +3,7 @@
   <body>
 
     <?php
-    include "index.php";
+    error_reporting(0);include "index.php";
     session_start();
     if($_SESSION['login']==1)
     {    $wert = $_GET['var'];

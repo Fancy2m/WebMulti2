@@ -5,6 +5,7 @@
   </body>
 </html>
 <?php
+  error_reporting(0);
 	if($_POST['suchen'] == "Suchen")
 	{
 		if(!$link=mysqli_connect("127.0.0.1","root",""))//Verbindungsabfrage

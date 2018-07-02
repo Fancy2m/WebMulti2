@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="layout.css">
   <body>
     <?php
+    error_reporting(0);
 	if($_POST['usuchen'] == "USuchen")
 	{
 		if(!$link=mysqli_connect("127.0.0.1","root",""))//Verbindungsabfrage

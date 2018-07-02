@@ -1,6 +1,7 @@
 <html>
 <link rel="stylesheet" href="layout.css">
 <?php
+error_reporting(0);
 session_start();
 if ($_POST['edituser']=='edit') {
   $_SESSION['edittoken']="1";
